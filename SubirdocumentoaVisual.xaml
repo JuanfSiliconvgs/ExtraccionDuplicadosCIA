@@ -2,6 +2,7 @@
   <x:Members>
     <x:Property Name="in_strNumPoliza" Type="InArgument(x:String)" />
     <x:Property Name="in_intIdPolicy" Type="InArgument(x:Int32)" />
+    <x:Property Name="in_intClientId" Type="InArgument(x:Int32)" />
   </x:Members>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
@@ -178,13 +179,14 @@
       </ui:MultipleAssign>
       <ui:CommentOut DisplayName="Comentar Crear ruta carpeta" sap:VirtualizedContainerService.HintSize="478.4,56.8" sap2010:WorkflowViewState.IdRef="CommentOut_4">
         <ui:CommentOut.Body>
-          <Sequence DisplayName="Actividades ignoradas" sap:VirtualizedContainerService.HintSize="416,163" sap2010:WorkflowViewState.IdRef="Sequence_25">
+          <Sequence DisplayName="Actividades ignoradas" sap:VirtualizedContainerService.HintSize="416,24.8" sap2010:WorkflowViewState.IdRef="Sequence_25">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Crear carpeta" sap:VirtualizedContainerService.HintSize="382,103" sap2010:WorkflowViewState.IdRef="CreateDirectory_2" Output="[strPath]" Path="[strRutaDocumentos + in_intClientId.ToString + in_intIdPolicy.ToString]" />
+            <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Crear carpeta" sap:VirtualizedContainerService.HintSize="382.4,104" sap2010:WorkflowViewState.IdRef="CreateDirectory_2" Output="[strPath]" Path="[strRutaDocumentos + in_intClientId.ToString + in_intIdPolicy.ToString]" />
           </Sequence>
         </ui:CommentOut.Body>
         <sap:WorkflowViewStateService.ViewState>
@@ -196,13 +198,13 @@
       </ui:CommentOut>
       <ui:CommentOut DisplayName="Comentar Mover Archivo" sap:VirtualizedContainerService.HintSize="478.4,56.8" sap2010:WorkflowViewState.IdRef="CommentOut_5">
         <ui:CommentOut.Body>
-          <Sequence DisplayName="Actividades ignoradas" sap:VirtualizedContainerService.HintSize="416,242" sap2010:WorkflowViewState.IdRef="Sequence_26">
+          <Sequence DisplayName="Actividades ignoradas" sap:VirtualizedContainerService.HintSize="416,243.2" sap2010:WorkflowViewState.IdRef="Sequence_26">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:MoveFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" Destination="[strPath.ToString]" DisplayName="Mover archivo" sap:VirtualizedContainerService.HintSize="382,182" sap2010:WorkflowViewState.IdRef="MoveFile_2" Path="[strUrl]" />
+            <ui:MoveFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" Destination="[strPath.ToString]" DisplayName="Mover archivo" sap:VirtualizedContainerService.HintSize="382.4,183.2" sap2010:WorkflowViewState.IdRef="MoveFile_2" Path="[strUrl]" />
           </Sequence>
         </ui:CommentOut.Body>
         <sap:WorkflowViewStateService.ViewState>
@@ -235,15 +237,16 @@
           <OutArgument x:TypeArguments="x:String">[SQL]</OutArgument>
         </Assign.To>
         <Assign.Value>
-          <InArgument x:TypeArguments="x:String" xml:space="preserve">["EXEC InsertarSuplemento " &amp; 
+          <InArgument x:TypeArguments="x:String" xml:space="preserve">["EXEC [vsegbas_copia_replica].[dbo].[InsertarSuplemento] " &amp; 
 "@POL_Id = " &amp; in_intIdPolicy &amp; ", " &amp; 
-"@SUP_FC = '" &amp; DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") &amp; "', " &amp;
-"@SUP_FM = '" &amp; DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") &amp; "', " &amp;
+"@Cli_Id = " &amp; in_intClientId &amp; "," &amp;
+"@SUP_FC = '" &amp; DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss") &amp; "', " &amp;
+"@SUP_FM = '" &amp; DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss") &amp; "', " &amp;
 "@USR_Id_FC = " &amp; idUsuarioWS &amp; ", " &amp;
 "@USR_Id_FM = " &amp; idUsuarioWS &amp; ", " &amp;
 "@SUP_Alias = '" &amp; "Duplicado póliza" &amp; "', " &amp;
-"@SUP_Tipo = '" &amp; 1 &amp; "', " &amp;
-"@SUP_Estado = '" &amp; 3 &amp; "', "]</InArgument>
+"@SUP_Tipo = " &amp; 1 &amp; ", " &amp;
+"@SUP_Estado = " &amp; 3]</InArgument>
         </Assign.Value>
       </Assign>
       <ui:ExecuteNonQuery AffectedRecords="{x:Null}" ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Run Command" ExistingDbConnection="[databaseConnect]" sap:VirtualizedContainerService.HintSize="478.4,138.4" sap2010:WorkflowViewState.IdRef="ExecuteNonQuery_3" Sql="[SQL]">
