@@ -1,8 +1,9 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="SubirdocumentoaVisual" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:upr="clr-namespace:UiPath.Platform.ResourceHandling;assembly=UiPath.Platform" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="SubirdocumentoaVisual" this:SubirdocumentoaVisual.in_strNumPoliza="6660181443369" this:SubirdocumentoaVisual.in_intIdPolicy="3282617" this:SubirdocumentoaVisual.in_intClientId="540" this:SubirdocumentoaVisual.in_intNumCasoSF="652211869" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:upr="clr-namespace:UiPath.Platform.ResourceHandling;assembly=UiPath.Platform" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_strNumPoliza" Type="InArgument(x:String)" />
     <x:Property Name="in_intIdPolicy" Type="InArgument(x:Int32)" />
     <x:Property Name="in_intClientId" Type="InArgument(x:Int32)" />
+    <x:Property Name="in_intNumCasoSF" Type="InArgument(x:Int32)" />
   </x:Members>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
@@ -114,13 +115,13 @@
       <AssemblyReference>System.Linq.Async</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="876.0000000000001,1070.4" sap2010:WorkflowViewState.IdRef="Sequence_27">
+  <Sequence sap:VirtualizedContainerService.HintSize="876,1066" sap2010:WorkflowViewState.IdRef="Sequence_27">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Subir documento a Visual" sap:VirtualizedContainerService.HintSize="512,1047.2" sap2010:WorkflowViewState.IdRef="Sequence_14">
+    <Sequence DisplayName="Subir documento a Visual" sap:VirtualizedContainerService.HintSize="513,1043" sap2010:WorkflowViewState.IdRef="Sequence_14">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:String" Name="strRutaDocumentos" />
         <Variable x:TypeArguments="upr:ILocalResource" Name="strPath" />
@@ -138,8 +139,8 @@
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:DatabaseConnect DisplayName="Conectar a base de datos" sap:VirtualizedContainerService.HintSize="478.4,92" sap2010:WorkflowViewState.IdRef="DatabaseConnect_2" ProviderName="Microsoft.Data.SqlClient" ConnectionString="Data Source=192.168.192.6;Initial Catalog=UPES_DATALAKE;User ID=usuariompm;Password=Programa2010;Encrypt=False" DatabaseConnection="[databaseConnect]" />
-      <ui:MultipleAssign DisplayName="Asignación múltiple" sap:VirtualizedContainerService.HintSize="478.4,242.4" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+      <ui:DatabaseConnect DisplayName="Conectar a base de datos" sap:VirtualizedContainerService.HintSize="479,92" sap2010:WorkflowViewState.IdRef="DatabaseConnect_2" ProviderName="Microsoft.Data.SqlClient" ConnectionString="Data Source=192.168.192.6;Initial Catalog=UPES_DATALAKE;User ID=usuariompm;Password=Programa2010;Encrypt=False" DatabaseConnection="[databaseConnect]" />
+      <ui:MultipleAssign DisplayName="Asignación múltiple" sap:VirtualizedContainerService.HintSize="479,241" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
         <ui:MultipleAssign.AssignOperations>
           <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
@@ -177,7 +178,7 @@
           </scg:List>
         </ui:MultipleAssign.AssignOperations>
       </ui:MultipleAssign>
-      <ui:CommentOut DisplayName="Comentar Crear ruta carpeta" sap:VirtualizedContainerService.HintSize="478.4,56.8" sap2010:WorkflowViewState.IdRef="CommentOut_4">
+      <ui:CommentOut DisplayName="Comentar Crear ruta carpeta" sap:VirtualizedContainerService.HintSize="479,57" sap2010:WorkflowViewState.IdRef="CommentOut_4">
         <ui:CommentOut.Body>
           <Sequence DisplayName="Actividades ignoradas" sap:VirtualizedContainerService.HintSize="416,24.8" sap2010:WorkflowViewState.IdRef="Sequence_25">
             <sap:WorkflowViewStateService.ViewState>
@@ -196,7 +197,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:CommentOut>
-      <ui:CommentOut DisplayName="Comentar Mover Archivo" sap:VirtualizedContainerService.HintSize="478.4,56.8" sap2010:WorkflowViewState.IdRef="CommentOut_5">
+      <ui:CommentOut DisplayName="Comentar Mover Archivo" sap:VirtualizedContainerService.HintSize="479,57" sap2010:WorkflowViewState.IdRef="CommentOut_5">
         <ui:CommentOut.Body>
           <Sequence DisplayName="Actividades ignoradas" sap:VirtualizedContainerService.HintSize="416,243.2" sap2010:WorkflowViewState.IdRef="Sequence_26">
             <sap:WorkflowViewStateService.ViewState>
@@ -214,7 +215,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:CommentOut>
-      <Assign DisplayName="Asignar SQL subir documento" sap:VirtualizedContainerService.HintSize="478.4,115.2" sap2010:WorkflowViewState.IdRef="Assign_3">
+      <Assign DisplayName="Asignar SQL subir documento" sap:VirtualizedContainerService.HintSize="479,115" sap2010:WorkflowViewState.IdRef="Assign_3">
         <Assign.To>
           <OutArgument x:TypeArguments="x:String">[SQL]</OutArgument>
         </Assign.To>
@@ -227,29 +228,30 @@
       model_DocumentType &amp; "', '" &amp; GuidId &amp; "', 1, '" &amp; model_Name &amp; "')"]</InArgument>
         </Assign.Value>
       </Assign>
-      <ui:ExecuteNonQuery AffectedRecords="{x:Null}" ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Ejecutar comando" ExistingDbConnection="[databaseConnect]" sap:VirtualizedContainerService.HintSize="478.4,147.2" sap2010:WorkflowViewState.IdRef="ExecuteNonQuery_2" Sql="[SQL]">
+      <ui:ExecuteNonQuery AffectedRecords="{x:Null}" ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Ejecutar comando" ExistingDbConnection="[databaseConnect]" sap:VirtualizedContainerService.HintSize="479,146" sap2010:WorkflowViewState.IdRef="ExecuteNonQuery_2" Sql="[SQL]">
         <ui:ExecuteNonQuery.Parameters>
           <scg:Dictionary x:TypeArguments="x:String, Argument" />
         </ui:ExecuteNonQuery.Parameters>
       </ui:ExecuteNonQuery>
-      <Assign DisplayName="Assign SQL Suplemento" sap:VirtualizedContainerService.HintSize="478.4,115.2" sap2010:WorkflowViewState.IdRef="Assign_4">
+      <Assign DisplayName="Assign SQL Suplemento" sap:VirtualizedContainerService.HintSize="479,115" sap2010:WorkflowViewState.IdRef="Assign_4">
         <Assign.To>
           <OutArgument x:TypeArguments="x:String">[SQL]</OutArgument>
         </Assign.To>
         <Assign.Value>
           <InArgument x:TypeArguments="x:String" xml:space="preserve">["EXEC [vsegbas_copia_replica].[dbo].[InsertarSuplemento] " &amp; 
 "@POL_Id = " &amp; in_intIdPolicy &amp; ", " &amp; 
-"@Cli_Id = " &amp; in_intClientId &amp; "," &amp;
-"@SUP_FC = '" &amp; DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss") &amp; "', " &amp;
-"@SUP_FM = '" &amp; DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss") &amp; "', " &amp;
-"@USR_Id_FC = " &amp; idUsuarioWS &amp; ", " &amp;
-"@USR_Id_FM = " &amp; idUsuarioWS &amp; ", " &amp;
-"@SUP_Alias = '" &amp; "Duplicado póliza" &amp; "', " &amp;
-"@SUP_Tipo = " &amp; 1 &amp; ", " &amp;
-"@SUP_Estado = " &amp; 3]</InArgument>
+"@Cli_Id = " &amp; in_intClientId &amp; ", " &amp; 
+"@SUP_FC = '" &amp; DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss") &amp; "', " &amp; 
+"@SUP_FM = '" &amp; DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss") &amp; "', " &amp; 
+"@USR_Id_FC = " &amp; idUsuarioWS &amp; ", " &amp; 
+"@USR_Id_FM = " &amp; idUsuarioWS &amp; ", " &amp; 
+"@SUP_Alias = '" &amp; "Duplicado póliza" &amp; "', " &amp; 
+"@SUP_Tipo = " &amp; 1 &amp; ", " &amp; 
+"@SUP_Estado = " &amp; 3 &amp; ", " &amp; 
+"@SUP_Observacion = '" &amp; "{\rtf1\ansi\ansicpg1252\deff0\deflang3082{\fonttbl{\f0\fnil\fcharset0 MS Sans Serif;}}  \viewkind4\uc1\pard\f0\fs17 Documento automático, número de caso Salesforce: " &amp; in_intNumCasoSF.ToString &amp; "  \par }" &amp; "'"]</InArgument>
         </Assign.Value>
       </Assign>
-      <ui:ExecuteNonQuery AffectedRecords="{x:Null}" ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Run Command" ExistingDbConnection="[databaseConnect]" sap:VirtualizedContainerService.HintSize="478.4,138.4" sap2010:WorkflowViewState.IdRef="ExecuteNonQuery_3" Sql="[SQL]">
+      <ui:ExecuteNonQuery AffectedRecords="{x:Null}" ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Run Command" ExistingDbConnection="[databaseConnect]" sap:VirtualizedContainerService.HintSize="479,137" sap2010:WorkflowViewState.IdRef="ExecuteNonQuery_3" Sql="[SQL]">
         <ui:ExecuteNonQuery.Parameters>
           <scg:Dictionary x:TypeArguments="x:String, Argument" />
         </ui:ExecuteNonQuery.Parameters>
