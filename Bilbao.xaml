@@ -2,6 +2,7 @@
   <x:Members>
     <x:Property Name="in_strNumPoliza" Type="InArgument(x:String)" />
     <x:Property Name="in_intIdPolicy" Type="InArgument(x:Int32)" />
+    <x:Property Name="in_intClientId" Type="InArgument(x:Int32)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
@@ -117,19 +118,19 @@
       <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Guardar como" sap:VirtualizedContainerService.HintSize="876.0000000000001,2596" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Guardar como" sap:VirtualizedContainerService.HintSize="1260,1798" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Edge: Occident" sap:VirtualizedContainerService.HintSize="579.2,2572.8" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="f28c2007-1f16-4a55-8542-b9a2be5c6371" Version="V2">
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Edge: Occident" sap:VirtualizedContainerService.HintSize="570,1775" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="f28c2007-1f16-4a55-8542-b9a2be5c6371" Version="V2">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="534.4,1532.8" sap2010:WorkflowViewState.IdRef="Sequence_12">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="536,1535" sap2010:WorkflowViewState.IdRef="Sequence_12">
             <Sequence.Variables>
               <Variable x:TypeArguments="ui:UiElement" Name="FindElement" />
             </Sequence.Variables>
@@ -138,7 +139,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="500.8,56.8" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+            <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="502,57" sap2010:WorkflowViewState.IdRef="TryCatch_1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -225,7 +226,7 @@
                 </Catch>
               </TryCatch.Catches>
             </TryCatch>
-            <Sequence DisplayName="Navegación Portal" sap:VirtualizedContainerService.HintSize="500.8,56.8" sap2010:WorkflowViewState.IdRef="Sequence_19">
+            <Sequence DisplayName="Navegación Portal" sap:VirtualizedContainerService.HintSize="502,57" sap2010:WorkflowViewState.IdRef="Sequence_19">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -308,13 +309,13 @@
                 </sap:WorkflowViewStateService.ViewState>
               </uix:NApplicationCard>
             </Sequence>
-            <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Guardar Archivo en ruta dinámica " sap:VirtualizedContainerService.HintSize="500.8,1254.4" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" ScopeGuid="d12ee663-90d7-48f3-8a41-9dab541c1014" Version="V2">
+            <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Guardar Archivo en ruta dinámica " sap:VirtualizedContainerService.HintSize="502,1254" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" ScopeGuid="d12ee663-90d7-48f3-8a41-9dab541c1014" Version="V2">
               <uix:NApplicationCard.Body>
                 <ActivityAction x:TypeArguments="x:Object">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="467.2,931.2" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="468,931" sap2010:WorkflowViewState.IdRef="Sequence_13">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="x:Boolean" Name="boolFileExists" />
                       <Variable x:TypeArguments="x:String" Name="strUrl" />
@@ -324,7 +325,7 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Todas las ubicaciones'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="433.6,250.4" sap2010:WorkflowViewState.IdRef="NTypeInto_3" InteractionMode="HardwareEvents" ScopeIdentifier="d12ee663-90d7-48f3-8a41-9dab541c1014" Text="C:\Users\juanfrancisco.sanche\OneDrive - Silicon Valley\Documentos\UiPath\Extracción Duplicado Póliza\Certificados\[k(Enter)]" Version="V3">
+                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Todas las ubicaciones'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="434,250" sap2010:WorkflowViewState.IdRef="NTypeInto_3" InteractionMode="HardwareEvents" ScopeIdentifier="d12ee663-90d7-48f3-8a41-9dab541c1014" Text="C:\Users\juanfrancisco.sanche\OneDrive - Silicon Valley\Documentos\UiPath\Extracción Duplicado Póliza\Certificados\[k(Enter)]" Version="V3">
                       <uix:NTypeInto.Target>
                         <uix:TargetAnchorable CvElementArea="188, 57, 26, 22" CvType="Icon" DesignTimeRectangle="190, 48, 43, 43" DesignTimeScaleFactor="1.25" ElementType="Button" FullSelectorArgument="&lt;wnd aaname='Cargando' cls='msctls_progress32' /&gt;&lt;wnd ctrlid='1001' title='Dirección: C:\Users\juanfrancisco.sanche\OneDrive - Silicon Vall*' /&gt;&lt;ctrl name='Dirección: C:\Users\juanfrancisco.sanche\OneDrive - Silicon Vall*' role='tool bar' /&gt;&lt;ctrl name='Todas las ubicaciones' role='split button' /&gt;" FuzzySelectorArgument="&lt;wnd aaname='Cargando' cls='msctls_progress32' /&gt;&lt;wnd ctrlid='1001' title='Dirección: C:\Users\juanfrancisco.sanche\OneDrive - Silicon Vall*' /&gt;&lt;ctrl name='Dirección: C:\Users\juanfrancisco.sanche\OneDrive - Silicon Vall*' role='tool bar' /&gt;&lt;ctrl name='Todas las ubicaciones' role='split button' automationid='' check:text='Todas las ubicaciones' /&gt;" Guid="bd480ce7-8663-4eda-96b0-c2412f39afe7" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAC8AAAAvCAYAAABzJ5OsAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAMISURBVGhD7dnrb0thHMDx/RWiLWWic325F5ZIlnghiIWYujSuIcxthpm5hGxxiVuMVEgkIm4Zm8uCocM7r7CxWell7dbqZjMWhpmqr5y2tPY8rSxpclI5Tb5vznPyy+f8cs6rZuh0OtK1jIEX0qmM/Px80rX03vzAC+mUhlcrDa9WGl6tNLxaaXi1+v/wj61D+PloKD8eDOXHQx3BBzr6bXpOF+uFe9VMig890hGsU/B6gnV6vtcZ6LcZ6L8/jINrDcL9aiXFK5sOo216vt2LoPvuKQ3n693hfKk18rnWyKfbRnrvjOTjrUg9NZl8uJlJT80oqspGCHNTnRTfW6vnfY2e7psG3t0w0HldaRhdNSa+20vgzUnwHQffUWg9CN594C2Hlt3QshNcJYSa1whzU50UH/Kfgc5KeHsROs5D+1kInAH/SWg7DN794N0L3rIY2F0Krq3g3AyOjeBYL8xNVGFhIW63m5ycHOEsWVI8gVOR7fpPgO8YtB2BtkMxtCcZegO8WgP2VcLcROXl5dHX10dHR8egHkCOV9D+Y+CLolsPiJt2KegScG4BZ1F407/R2FdA81JhbrLMZvOgH0COV97leLSyac/vTW+PoR1F8Dq66VcxNE2LoGmBMPdfWSwWlJ/yCg08kyXHh9HRj9CzB1p2gXtHBO2KbjqMXhuHXgYvF0PTQmg0w4s5wtxkGY1GbDZbGF9RUSGcy5LjPfHo6KZdxZFNOwrhtYJeDfaVcWgLNM4Lo3k+CxpmCnMTFQ+3Wq3CeaLk+L82XQzOTXJ0Uzw6/w+a+mlQP1WYm6jy8vJBw5XkeNe2v9Hh1yOKti8fsOl49PQwmmdT4GmuMDdR2dnZFBQUCNf/lRQfai6Ibnpd3KaXQ/OSKHo+NM6FF7Mj6IYZMfSTXHgymeDjScLcVCfFV+3JpPv6aLqqTXRdM/G2ykRndRbtV5TG0H51LIFKpXEEKsfjv6w0AZ/SpYl4L0zkXGmWMDfVSfHpkoZXKw2vVhperTS8Wml4tdLwaqXh1Ur7+16tfgH+ETG7YQc5bgAAAABJRU5ErkJggg==" InformativeScreenshot="47a6d80d04aab7f3e13bf14471e390dd.png" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='#32770' title='Guardar como' /&gt;" SearchSteps="Selector, FuzzySelector, Image, CV" Version="V2" Visibility="Interactive">
                           <uix:TargetAnchorable.Anchors>

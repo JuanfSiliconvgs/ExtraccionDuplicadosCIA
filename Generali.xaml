@@ -1,4 +1,15 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Generali" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1234,912" sap2010:WorkflowViewState.IdRef="Generali_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Generali" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_strNumPoliza" Type="InArgument(x:String)" />
+    <x:Property Name="in_intClientId" Type="InArgument(x:Int32)" />
+    <x:Property Name="in_intIdPolicy" Type="InArgument(x:Int32)" />
+    <x:Property Name="in_strNumDocumento" Type="InArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1234,912</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Generali_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -27,6 +38,28 @@
       <x:String>GlobalConstantsNamespace</x:String>
       <x:String>UiPath.UIAutomationNext.Enums</x:String>
       <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Services.RuntimeAnalyze</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>System.Numerics</x:String>
+      <x:String>UiPath.CV</x:String>
+      <x:String>UiPath.Shared.ObjectLibrary</x:String>
+      <x:String>UiPath.CV.Activities</x:String>
+      <x:String>UiPath.CV.Activities.Interfaces</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -61,87 +94,392 @@
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
       <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Database.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Persistence.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.MicrosoftOffice365.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.CV.Activities</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.Watcher</AssemblyReference>
+      <AssemblyReference>System.IO.Packaging</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Generali" sap:VirtualizedContainerService.HintSize="892.0000000000001,748.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <sap:WorkflowViewStateService.ViewState>
+    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+      <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
+      <x:Boolean x:Key="ShouldCollapseAll">False</x:Boolean>
+    </scg:Dictionary>
+  </sap:WorkflowViewStateService.ViewState>
+  <Sequence DisplayName="Generali" sap:VirtualizedContainerService.HintSize="1260,2671" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:OpenBrowser AutomaticallyDownloadWebDriver="{x:Null}" BrowserType="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="466.4,247.2" sap2010:WorkflowViewState.IdRef="OpenBrowser_4" Url="https://www.generali.es/arq_genernetPortalFormWeb/CorredorPortal.po?mediatorCode=01858">
-      <ui:OpenBrowser.Body>
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Edge: generali-spain - Iniciar sesión" sap:VirtualizedContainerService.HintSize="624,2648" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" ScopeGuid="53e47d24-c541-4bb1-a184-aee386651bc0" Version="V2">
+      <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
-            <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Login" sap:VirtualizedContainerService.HintSize="416,89.6" sap2010:WorkflowViewState.IdRef="Sequence_9">
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-          </Sequence>
-        </ActivityAction>
-      </ui:OpenBrowser.Body>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-    </ui:OpenBrowser>
-    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="Attach Browser 'msedge.exe PORTAL'" sap:VirtualizedContainerService.HintSize="466.4,478.4" sap2010:WorkflowViewState.IdRef="BrowserScope_3" InformativeScreenshot="cc4e49063a70321947d8cc1568ff46f4" Selector="&lt;html app='msedge.exe' title='PORTAL DEL CORREDOR' /&gt;">
-      <ui:BrowserScope.Body>
-        <ActivityAction x:TypeArguments="x:Object">
-          <ActivityAction.Argument>
-            <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
-          </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,308" sap2010:WorkflowViewState.IdRef="Sequence_10">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="590,2408" sap2010:WorkflowViewState.IdRef="Sequence_11">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'A  #'" sap:VirtualizedContainerService.HintSize="382.4,139.2" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT">
-              <ui:Click.CursorPosition>
-                <ui:CursorPosition Position="Center">
-                  <ui:CursorPosition.OffsetX>
-                    <InArgument x:TypeArguments="x:Int32" />
-                  </ui:CursorPosition.OffsetX>
-                  <ui:CursorPosition.OffsetY>
-                    <InArgument x:TypeArguments="x:Int32" />
-                  </ui:CursorPosition.OffsetY>
-                </ui:CursorPosition>
-              </ui:Click.CursorPosition>
-              <ui:Click.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e4ffaf27-2dba-4772-a8d1-36b70bef6889" InformativeScreenshot="761b1bd9aff2d6f950f9c453f9878a7d" Selector="&lt;webctrl parentid='wellcome-content' tag='A' /&gt;">
-                  <ui:Target.TimeoutMS>
-                    <InArgument x:TypeArguments="x:Int32" />
-                  </ui:Target.TimeoutMS>
-                  <ui:Target.WaitForReady>
-                    <InArgument x:TypeArguments="ui:WaitForReady" />
-                  </ui:Target.WaitForReady>
-                </ui:Target>
-              </ui:Click.Target>
-            </ui:Click>
-            <ui:NavigateTo Browser="{x:Null}" DisplayName="Navigate To" sap:VirtualizedContainerService.HintSize="382.4,108.8" sap2010:WorkflowViewState.IdRef="NavigateTo_2">
-              <ui:NavigateTo.Url>
-                <InArgument x:TypeArguments="x:String">
-                  <Literal x:TypeArguments="x:String" Value="" />
-                </InArgument>
-              </ui:NavigateTo.Url>
-            </ui:NavigateTo>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Iniciar sesión'" sap:VirtualizedContainerService.HintSize="556,189" sap2010:WorkflowViewState.IdRef="NClick_1" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="53e47d24-c541-4bb1-a184-aee386651bc0" Version="V4">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="access.generali.es" CVScreenId="b2d731aa-084a-435a-9955-881c1968ee9c" CvElementArea="807, 736, 321, 53" CvTextArea="915, 754, 105, 16" CvTextArgument="Iniciar sesion" CvType="Button" DesignTimeRectangle="810, 738, 316, 50" DesignTimeScaleFactor="1" ElementType="Button" FuzzySelectorArgument="&lt;webctrl id='okta-signin-submit' tag='INPUT' type='submit' class='button button-primary' aaname='Iniciar sesión' check:text='Iniciar sesión' /&gt;" Guid="84edd5d3-4273-404b-8503-ed1a961c25e7" ImageBase64="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" InformativeScreenshot="73da2f37c867fba143c4ae37400dd602.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='generali-spain - Iniciar sesión' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V4" Visibility="Interactive" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'ENTRAR'" sap:VirtualizedContainerService.HintSize="556,189" sap2010:WorkflowViewState.IdRef="NClick_2" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="53e47d24-c541-4bb1-a184-aee386651bc0" Version="V4">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="generali.es/arq_genernetPortalFormWeb/CorredorInicio.po" CVScreenId="31267563-0344-4b5a-95fe-ea06e3dd4300" CvElementArea="827, 957, 282, 43" CvTextArea="930, 969, 75, 16" CvTextArgument="ENTRAR" CvType="Button" DesignTimeRectangle="828, 958, 280, 41" DesignTimeScaleFactor="1" ElementType="Text" FuzzySelectorArgument="&lt;webctrl parentid='wellcome-content' tag='A' type='' class='btn btn-lg btn-default btn-inicio' aaname='ENTRAR' check:innerText='ENTRAR' /&gt;" Guid="838152ee-4e55-4b2b-9958-a813db7fb946" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAARwAAAAtCAYAAAB8pdRcAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAPQSURBVHhe7du/SxthHMdx/6ebMjgVCh0y6dRJ6dKlQociVPwDFIpkKA6iSxelUOpQFMROFiQNCVfTqI0oUVLqLwxiKYHAtzz3xPPy5BI1yT3cwfsFn6G5S56DcJ8+z5NzqFarCSGE2MiQ+QIhhEQVv3ByjkMIIZEktHAAYNAoHADWUDgArKFwAFhD4QCwhsIBYA2FA8AaCgeANRQOAGsoHADWUDgArKFwAFhD4STQ5eqE9x11Tcb1zz/JqNdS4n65aPkc3+lnKTiOFFb18Qd9fmCMruc/GZXC9AepnBpjBjR+LkpenZtelGrDPKr1OwbiQX1fFE7C6JsvLe7seynNd8jXqn++LhxHcsMTchB2UxqFc11Yaf2s6XHv/YXp8DH09TyX4npWKtvBbEl5fkryw2rsKTm8MsZtqi6kJTcyKnknJcXtunnY0+8YiAcKJ4H0zTch5bDyCOEXjsrbTamZJxiF06Yw5723VDAPaPddz833OW8Gk18+NA+J1LNSHFbHNmV/zJHc5Fr79fU7BmKDwkmg+24+ky6cOSl/Uu9Lyc7GdesJEReONLJSVGUXWObd+vdtxput7e6LnH1UM6lx2T82z+pvDMQHhZNA9958htvCOWlUpfwqZOkRdeEcrejZx9KeceBaDib13s1v9c/mdeQX9sTcyul9DMQJhZNAXTdQmwmWg184aiJQ1Td1y9IqwsL5e5yV0ouUnrkcGQdvC8ZfBl3oQgzZPO55DMQKhZNAD9k0PgwsS4KFo5ybS6uBFE576fl5NiG7P67bZi1hS6ja+hvv2szN417HQLyo74rCSZhu/9uHMQtHzKXVQAon+AvSlpQzLyXnPBV3yZWrsBZo7Mlu2pHc2IqcBV+/WhNXFYixedzTGIgdCieB+i4cc2k1kMJpv57z5qwkn3HlpvXQ3bM3HdM68+llDMQPhZNAnW6+TsIKR/GXVkuLkRSOSF1OMqP6ocPVamC5U5fKrN5zKW2Yz9VkpbI8pUsksHn8+DEQRxROAnW++cJ1Khx/adWcVQy+cNSOriulEeOhw/qW7IQsm3y3y63hGak0t3IePQZiicJJoIdsGpfmN/29kY6FE1xaRVU4gYfycq/X5LLLxnCQ3lB2xF3XG9uPHQPxROEk0L2/2Hi5K5huhaP8WW7+6UJEheMtod6lm7+M/dJPFIf89N3C2Dx+3BjGg42IDQoHgDUUDgBrKBwA1lA4AKyhcABYQ+EAsIbCAWANhQPAGgoHgDUUDgBrKBwA1lA4AKyhcABYQ+EAsKZj4RBCSBRpKxxCCIk6FA4hxFr+A4dlabVSz3uKAAAAAElFTkSuQmCC" InformativeScreenshot="87efea69952c8bb89883a199ff323e13.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='PORTAL DEL CORREDOR' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V4" Visibility="Interactive" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NSelectItem DisplayName="Select Item 'Mis favoritos'" sap:VirtualizedContainerService.HintSize="556,189" sap2010:WorkflowViewState.IdRef="NSelectItem_1" Item="Duplicado de Póliza" ScopeIdentifier="53e47d24-c541-4bb1-a184-aee386651bc0" Version="V4">
+              <uix:NSelectItem.Items>
+                <scg:List x:TypeArguments="x:String" Capacity="12">
+                  <x:String>Generali Hogar [7.18]</x:String>
+                  <x:String>Duplicado de Póliza</x:String>
+                  <x:String>Impresión de duplicados</x:String>
+                  <x:String>Mantenimiento</x:String>
+                  <x:String>Negocio</x:String>
+                  <x:String>Compañía</x:String>
+                  <x:String>Formación</x:String>
+                  <x:String>Normas</x:String>
+                  <x:String>Noticias</x:String>
+                  <x:String>Productos</x:String>
+                  <x:String>Servicios</x:String>
+                  <x:String>Histórico</x:String>
+                </scg:List>
+              </uix:NSelectItem.Items>
+              <uix:NSelectItem.Target>
+                <uix:TargetAnchorable BrowserURL="generali.es/arq_genernetPortalFormWeb/CorredorPortal.po" CVScreenId="cb035c2e-eb47-48dd-a2e7-734dc67aa246" CvTextArea="1560, 197, 77, 13" CvTextArgument="Mis favoritos" CvType="Text" DesignTimeRectangle="1539, 191, 101, 26" DesignTimeScaleFactor="1" ElementType="Text" FuzzySelectorArgument="&lt;webctrl id='dropdownMenu1' tag='A' type='' class='widget-favoritos' aaname=' Mis favoritos ' check:innerText='Mis favoritos' /&gt;" Guid="bbd60a26-dfdd-4f53-a0bf-cb9c23ad25a9" InformativeScreenshot="e2c56ccdd3be33bcbb70ea5cade71cc8.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='PORTAL DEL CORREDOR' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                      <uix:Target CVScreenId="cb035c2e-eb47-48dd-a2e7-734dc67aa246" CvTextArea="1545, 162, 53, 15" CvTextArgument="Imprimir" CvType="Text" DesignTimeRectangle="1524, 161, 76, 16" ElementType="Text" FuzzySelectorArgument="&lt;webctrl parentid='page-wrapper' tag='A' type='' class='' aaname='  Imprimir &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;' check:innerText='Imprimir' /&gt;" Guid="45821cfd-7e7e-4f38-8338-4019a67482b3" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFAAAAAUCAYAAAAa2LrXAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGOSURBVFhH7ZexcoQgEEDvZ7VIlcImKbgv8Io0jF9xjbSXm0mRSv8hKbRIdW1mMptBRHABxcEYJ+HN0ADrymPBuwNEgjjgjsgyosBAosBAnAJv1xzSNLG0O8iKF/j4whH/E6fApiRwLBvc3fVzkff5BRoviQ0wklif9TNUQNMEaI37PWgZHFMCrMUDbhYL1Cvz6fUTD1vYWuC2LBYomRtXYIG8Qgiwmu92fy0QBk1fOWJzVBV0FV9UUBfqGtGri/fTUj6Lx+kVuCzXuAL5HAqsP3EizuSXBOovJBejFtLJKioR3S9giO8WqSQKsRSUUyzQP5cpUBtzYApsL3DKxO5MCZILS7McnifvDLtAXEWjF63psOguD9p9fb4RaxHom8smcO4uNQQOYjza4/kN3s8Pk6J9BY6egQWiKtClGkI8BLpybS5QtihQY5cCVz7CrlyrC5wS4ztvFYH6fPRbbXcCJXNf2blxxQoCCQVKVMXj2F0KdP+VU+10veGw1bEd4T3hFLgXosBAosA/ThQYyDeVQzjS6l2b9wAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NSelectItem.Target>
+            </uix:NSelectItem>
+            <If Condition="[in_strNumPoliza.StartsWith(&quot;GW7&quot;) = true]" sap:VirtualizedContainerService.HintSize="556,315" sap2010:WorkflowViewState.IdRef="If_1">
+              <If.Then>
+                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,25" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:String" Name="strCentroAdmin">
+                      <Variable.Default>
+                        <Literal x:TypeArguments="x:String">G W7 427000389 0001 000767</Literal>
+                      </Variable.Default>
+                    </Variable>
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'NIF/NIE/CIF'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="434,250" sap2010:WorkflowViewState.IdRef="NTypeInto_1" InteractionMode="Simulate" ScopeIdentifier="53e47d24-c541-4bb1-a184-aee386651bc0" Text="[in_strNumDocumento.Replace(&quot;-&quot;,&quot;&quot;)]" Version="V4">
+                    <uix:NTypeInto.Target>
+                      <uix:TargetAnchorable BrowserURL="generali.es/arq_genernetPortalFormWeb/CorredorPortal.po" CVScreenId="cc0a0f60-30de-48f3-80d2-73c1d9fc47ed" CvElementArea="1179, 549, 86, 19" CvType="InputBox" DesignTimeRectangle="1179, 550, 84, 17" DesignTimeScaleFactor="1" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl id='areaTrabajo' tag='IFRAME' /&gt;&lt;webctrl id='mainFrame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='text' tag='INPUT' class='oscuroGris' aaname='' /&gt;" Guid="6584b81c-f109-4455-bd34-78fa3dcd2155" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFgAAAAVCAYAAADCUymGAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABcSURBVFhH7dAxDgAgCMVQT831dSJRcZNufclfYOuYQo37oF4lcES4hqUj8P7Qn2xpYIiBYQaGGRhmYJiBYQaGGRhmYJiBYQaGGRhmYJiBYc/A+XD/SyWwehkYtgBfzo1AbbV/ugAAAABJRU5ErkJggg==" InformativeScreenshot="480e84fcc963de9b145dc42d1c7112d9.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='msedge.exe' title='PORTAL DEL CORREDOR' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V4" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                            <uix:Target CVScreenId="cc0a0f60-30de-48f3-80d2-73c1d9fc47ed" CvTextArea="1076, 552, 70, 12" CvTextArgument="NIF/NIE/CIF" CvType="Text" DesignTimeRectangle="1077, 552, 68, 13" ElementType="Text" FuzzySelectorArgument="&lt;webctrl id='areaTrabajo' tag='IFRAME' /&gt;&lt;webctrl id='mainFrame' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='SPAN' class='oscuro' aaname=' &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;NIF/NIE/CIF &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9; &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;' check:innerText='NIF/NIE/CIF' /&gt;" Guid="e688829f-f6fa-4f77-9114-3ac5a30c050c" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEgAAAARCAYAAAB+bOp4AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGhSURBVFhH7ZaxjYQwEEXpiDJogQ6ogAYogJycUsghpAhiUk4f6Z8+f7342IMLTn7SCmY8Hg/fg9lsS5ySuSNxJAkUIQkU4U8EappmG4bB3bexLMtWVdV+vZuDQH3fb1mW7Vf14QF1HL+Qz8cAioa9rus2z/OW5/n+MLABfGVZ7nEQkTkYE8qv8wHmac3IVRTFYQ5i1I86sDZr0ljEUOwXgbC47oYK9BPbwTiLpxjIz45SgQD8KkAsP+Lqut7zAIrggnGTcI/1GO/rOy8CIZE+lBcYsxUvnsVABPjZVb8RCPOZC8TibxFI32lfMGRre7J1Aa5t237HajHIATG8wJBAZ68YxvV84wa/IySQv2I6PygQ7/lzQc5shSIQFYM7P45jVKB3+XUjyScCXe4gwMXRAWeCuE1CxXsxmNd13ccCIdbHzuLBbQLRRsu578wm/mUBXgzbW78aVwTC5vFBCfI8fkgTLkYfBVPRfA7ww5mEisFcCnTlMz9N0+FwVlg343kuql8/816T8sgfRZ4voeLvAsJ5hz7BIwL9J5JAEZJAEb4AURFTLRjvhTYAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NTypeInto.Target>
+                  </uix:NTypeInto>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Siguiente ›'" sap:VirtualizedContainerService.HintSize="434,189" sap2010:WorkflowViewState.IdRef="NClick_3" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="53e47d24-c541-4bb1-a184-aee386651bc0" Version="V4">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="generali.es/arq_genernetPortalFormWeb/CorredorPortal.po" CVScreenId="94d5548d-f155-4bdd-907b-12f7dba0f3bb" CvElementArea="812, 927, 78, 19" CvTextArea="824, 931, 54, 13" CvTextArgument="Siguiente &gt;" CvType="Button" DesignTimeRectangle="814, 929, 75, 16" DesignTimeScaleFactor="1" ElementType="Button" FuzzySelectorArgument="&lt;webctrl id='areaTrabajo' tag='IFRAME' /&gt;&lt;webctrl id='mainFrame' tag='IFRAME' /&gt;&lt;webctrl id='siguiente' tag='INPUT' type='button' class='falseHidden' aaname='Siguiente ›' check:text='Siguiente ›' /&gt;" Guid="42a1b2b2-2560-4960-bb74-581b33f28639" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAE8AAAAUCAYAAADMfWCyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKUSURBVFhH7VhJqipBEPQ4egaHAzhsHQ7g0vEYTrgXFy4U0Y0gOCMuBEURxQFFURwOko8oyKZobW31/Q8PuiDorKjIrKzobvvxTGSMj4dJTRhD/1DMa7VaBnSgUCg8Nu92uxl4gUQi8di86/Vq4AU0zbtcLgZeQNO88/msG9lslkwmkwLMwc/nc/J4PNTv9+9yXgE14vH4Ha8H3+S+A03zTqeTLvR6PbLb7eLKc4vFQtVq9U77vxCLxQTU/G9D07zj8agLlUqFHA4HzWazuzVwbrebut2uAEzFk4mDBQIB2mw2lMlklFjWg4cOdeRc3ou1wWBQ8FiHDv3wG4AYOuTIGnWfn0LTvMPhoBvRaFRpuFwuK/x0OhUHrNfr5Pf7KZ1OK3rMV6uV4DhmfafTETx0ModcmccTL9cE5Bg1UZt7wpX3kvsHz7nvQNO8/X7/NtrtNpnNZgHEk8mEXC4X5fN5stlsgoOOD7FcLimVSikx66EDH4lElJrybypMwxOEK2qhJusR4wqgHjRyLvem7h16rqUXmubtdruPEQ6HKZlM0ng8FmbkcjmyWq3UbDbFeqlUIp/PR4vFQug4Zj104FEHMTisyXtgjhuCWpiznvcH5HrqHtWAFn2o93kGTfO2260uoAAOMRqNFA6NF4tFwTmdTqrVaqIxaHkdc3yNoeN8xHgyGo2G0EIHHuuciytyB4OB4JHDPPRcH0B9aJmX91Kfg3tW88/wtXkANpZfDT4omwczAH79ZPPYHPDgWC+bIefy4TnvkXmIoeUbyPX5xqj7h45z34Gmefj6/SuEQiEBNf/XoGneer3+NeDPBa/XqzyZ+P0bDod3ur8GTfPw9TPwHA/Nw79asGDgNe7MM8b7wzDvi/EDI+b1b2yleJQAAAAASUVORK5CYII=" InformativeScreenshot="fe15280532515196d5b25ec43c6ec66d.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='PORTAL DEL CORREDOR' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V4" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                            <uix:Target CVScreenId="94d5548d-f155-4bdd-907b-12f7dba0f3bb" CvElementArea="522, 927, 78, 19" CvTextArea="544, 931, 33, 11" CvTextArgument="Volver" CvType="Button" DesignTimeRectangle="524, 929, 75, 16" ElementType="Button" FuzzySelectorArgument="&lt;webctrl id='areaTrabajo' tag='IFRAME' /&gt;&lt;webctrl id='mainFrame' tag='IFRAME' /&gt;&lt;webctrl id='cancelar' tag='INPUT' type='button' class='falseHidden' aaname='Volver' check:text='Volver' /&gt;" Guid="34b01df2-a683-4689-b966-69f9cdb60471" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAE8AAAAUCAYAAADMfWCyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIBSURBVFhH7ZhJqiJBEIbrOHoGh72oa4etrh2uoaI3EFwooi7EhYqCuBAUURRnFMXhINH8CVFoWfnqdXfZ/RYZ8FEZf0Zkmj81gBqp+OPQjIKK74duXrfbVXyDUqlkbt7j8VBYkMlkzM273+8KC6Tm3W43hQVS867Xq60sFgvyer3UaDRe9MFgQMFgUMwbew6HA0Wj0been4LUvMvlYjuFQoHS6fSLhtyoMbvdTphXr9ff5n4CUvPO57Pt9Pt9CgQCNJ/PRY4rcujb7ZYikQhpmkZOp/NFq9VqwuB8Pq/34S6GzmOzPvSwZvwtdiA173Q62c56vaZwOEzValXkuCKHnkqlBKx7PB4ajUZ6/XNtr9ejeDxOs9nMdD3Web1PITXveDx+hFwuJw62Wq0omUyKHGM2ATXT6ZT8fj+1Wi1dh4YxrugBGMNk3HWMw+HQ+1Bj3N9OpObhZf0JOp0OuVwuqlQqwiDky+WSQqGQ0FAzmUzEXLPZfNETiQQVi0WKxWKij+swft6D18tms2/724nUvP1+/xHwVcXBfD6fMIN1jDkvl8vkdrtpOByKWuSsw3iYh3V4LVkfDmfc307+uXkAh8QjxqYANoIfvXa7rWtcx/mzKePxWBhm1vffzMMXS/E1UvM2m43CAql5+AIqvsbUPPzVggmFNW/mqfj9UOb9RfwCNPx8z9Y6NSUAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <uix:NGetText DisplayName="Get Text 'Póliza'" sap:VirtualizedContainerService.HintSize="434,189" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="53e47d24-c541-4bb1-a184-aee386651bc0" TextString="[strCentroAdmin]" Version="V4">
+                    <uix:NGetText.Target>
+                      <uix:TargetAnchorable BrowserURL="generali.es/arq_genernetPortalFormWeb/CorredorPortal.po" CVScreenId="e766454a-969f-4945-b569-7d2f64f0fc7a" CvTextArea="527, 661, 176, 11" CvType="AnyWordGroup" DesignTimeRectangle="528, 660, 248, 13" DesignTimeScaleFactor="1" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl id='areaTrabajo' tag='IFRAME' /&gt;&lt;webctrl id='mainFrame' tag='IFRAME' /&gt;&lt;webctrl parentid='clisini_conspol_tabIdentification' tag='TABLE' /&gt;&lt;webctrl class='transparentReadOnly' tag='INPUT' type='text' aaname='' /&gt;" Guid="f325b8ea-538a-421a-b13d-713f1aec3200" InformativeScreenshot="9da34251cf52027afc28afc84eee2cf2.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='msedge.exe' title='PORTAL DEL CORREDOR' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                            <uix:Target CVScreenId="e766454a-969f-4945-b569-7d2f64f0fc7a" CvTextArea="527, 630, 33, 12" CvTextArgument="Poliza" CvType="Text" DesignTimeRectangle="527, 630, 33, 12" ElementType="Text" FuzzySelectorArgument="&lt;webctrl id='areaTrabajo' tag='IFRAME' /&gt;&lt;webctrl id='mainFrame' tag='IFRAME' type='' class='cabeceraTabla' aaname='                  Póliza                   ' check:innerText='Póliza' /&gt;" Guid="3c024b4f-8f7f-4aba-ae52-57591b8df821" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAPwAAAARCAYAAAD5ccE7AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE3SURBVHhe7do9agJBGIdx7+EVkiPEXCDBCyQHEHuxzj3scoJUVovFFmksLAQrDyA2FgkpAiN/4V3GcccvdHGd5weyH8paPb6ziw0HIBmN8ASA+0XwQEIIHkjIycHPPwfuu/Pu/n9/NseTj75b5KOdfQC3pwj+b7lw2euz+3poFq8w3tVs6sa9bhG7EDlQH1vB52/tTdSibfbSKo5jCB6oj2jwmuJaulvM2trkP7Sk1zWGT49bqwW9J7ol2LeKAHA90eD9CR9Oe0VrAZcF7wuv69M5vafPALi+6D28JrRFqogtcPFD3Re8XbPsnH2P9gkeqEZ0wvvOCd5uCbQaMOE5JjxQraOCP2dJr30/dil7LsCEB6pzVPCiOC/x0M6/jn5EmPBAdU7+4w2A+iJ4ICEEDySE4IGErAGOKREfkM7n3AAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NGetText.Target>
+                  </uix:NGetText>
+                  <Assign DisplayName="Extracción Centro Administrativo" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_1">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[strCentroAdmin]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Match(strCentroAdmin, "\d{4}").Value]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <uix:NSelectItem DisplayName="Select Item 'Mis favoritos'" sap:VirtualizedContainerService.HintSize="434,189" sap2010:WorkflowViewState.IdRef="NSelectItem_2" Item="Impresión de duplicados" ScopeIdentifier="53e47d24-c541-4bb1-a184-aee386651bc0" Version="V4">
+                    <uix:NSelectItem.Items>
+                      <scg:List x:TypeArguments="x:String" Capacity="14">
+                        <x:String>Generali Hogar [7.18]</x:String>
+                        <x:String>Duplicado de Póliza</x:String>
+                        <x:String>Impresión de duplicados</x:String>
+                        <x:String>Mantenimiento</x:String>
+                        <x:String>Negocio</x:String>
+                        <x:String>Compañía</x:String>
+                        <x:String>Formación</x:String>
+                        <x:String>Normas</x:String>
+                        <x:String>Noticias</x:String>
+                        <x:String>Productos</x:String>
+                        <x:String>Servicios</x:String>
+                        <x:String>Histórico</x:String>
+                        <x:String>Home</x:String>
+                        <x:String>Impresión de duplicados</x:String>
+                      </scg:List>
+                    </uix:NSelectItem.Items>
+                    <uix:NSelectItem.Target>
+                      <uix:TargetAnchorable BrowserURL="generali.es/arq_genernetPortalFormWeb/CorredorPortal.po" CVScreenId="1c37cc47-198f-4a8f-bfee-0a6d35b70631" CvTextArea="1559, 197, 78, 13" CvTextArgument="Mis favoritos" CvType="Text" DesignTimeRectangle="1539, 191, 101, 26" DesignTimeScaleFactor="1" ElementType="Text" FuzzySelectorArgument="&lt;webctrl id='dropdownMenu1' tag='A' type='' class='widget-favoritos' aaname=' Mis favoritos ' check:innerText='Mis favoritos' /&gt;" Guid="0bae1b45-ebaf-45eb-8d90-a0fddc51ddf8" InformativeScreenshot="d929292fbcbb07a412f42474261dc679.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='PORTAL DEL CORREDOR' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                            <uix:Target CVScreenId="1c37cc47-198f-4a8f-bfee-0a6d35b70631" CvTextArea="1545, 162, 53, 15" CvTextArgument="Imprimir" CvType="Text" DesignTimeRectangle="1524, 161, 76, 16" ElementType="Text" FuzzySelectorArgument="&lt;webctrl parentid='page-wrapper' tag='A' type='' class='' aaname='  Imprimir &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;' check:innerText='Imprimir' /&gt;" Guid="726a966a-9d8d-4826-8091-c301d219be62" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFAAAAAUCAYAAAAa2LrXAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGOSURBVFhH7ZexcoQgEEDvZ7VIlcImKbgv8Io0jF9xjbSXm0mRSv8hKbRIdW1mMptBRHABxcEYJ+HN0ADrymPBuwNEgjjgjsgyosBAosBAnAJv1xzSNLG0O8iKF/j4whH/E6fApiRwLBvc3fVzkff5BRoviQ0wklif9TNUQNMEaI37PWgZHFMCrMUDbhYL1Cvz6fUTD1vYWuC2LBYomRtXYIG8Qgiwmu92fy0QBk1fOWJzVBV0FV9UUBfqGtGri/fTUj6Lx+kVuCzXuAL5HAqsP3EizuSXBOovJBejFtLJKioR3S9giO8WqSQKsRSUUyzQP5cpUBtzYApsL3DKxO5MCZILS7McnifvDLtAXEWjF63psOguD9p9fb4RaxHom8smcO4uNQQOYjza4/kN3s8Pk6J9BY6egQWiKtClGkI8BLpybS5QtihQY5cCVz7CrlyrC5wS4ztvFYH6fPRbbXcCJXNf2blxxQoCCQVKVMXj2F0KdP+VU+10veGw1bEd4T3hFLgXosBAosA/ThQYyDeVQzjS6l2b9wAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NSelectItem.Target>
+                  </uix:NSelectItem>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'CONTINUAR'" sap:VirtualizedContainerService.HintSize="434,189" sap2010:WorkflowViewState.IdRef="NClick_5" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="53e47d24-c541-4bb1-a184-aee386651bc0" Version="V4">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="generali.es/arq_genernetPortalFormWeb/CorredorPortal.po" CVScreenId="20371fe8-24cc-4ca4-bdf7-75931dd05bef" CvElementArea="676, 317, 221, 36" CvType="InputBox" DesignTimeRectangle="677, 318, 219, 34" DesignTimeScaleFactor="1" ElementType="Text" FuzzySelectorArgument="&lt;webctrl id='newSessionContinue' tag='A' type='' class='btn btn-default btn-block' aaname='CONTINUAR' check:innerText='CONTINUAR' /&gt;" Guid="5e98022a-0c57-4a5f-93cb-10987cb5b161" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAN8AAAAmCAYAAABEZE79AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKQSURBVHhe7ZpNbqswFEa7p6wr3UqUnbT7qIQ6yaTDjiq1a/ATNgb7/gBJ2tzBO0fyBD5+jO6xDclTAoAQnuQGAHgMs3xvhwONRntAM+UDgL8F+QCCQD6AIJAPIAjkAwgC+QCCQD6AIJAPIAjkAwgC+QCCQL5rGE752SztlD5lZkTlntPHl525DGJ7+k4fx0MaXr9T+npJg/GXpLmd3/t8c/zb8SX9iDOXa9Z7Ljl9fZlreU+X8bruuY17NPsII+OzqSDfCp9nLdvP67MSq+SEbJNEiyBtscoilzL123Uhy/wkn7zeyJ3y5f6eT1lAddx4jCulMfgA8u3CKcaRLFuegdZzRcCmCHOxntJlFKUen5Ey9dtV0av8lDsbRX+XfEu+63PFk0/dH1SQbwdmsRls5cb9cxHWYp1mxUUCr1g9WWReSNIKcY98+T6nbdZ+5Lsa5Ntkb/Fs58qyrZklp2Ity9deCn0eTxaZb3PlHa0T/kb5+oFFXnNFPpadLsi3iVFoJts5T756rP0BpeLJIvMi1xb/zfIVidts7ouaVfXHFsTzQb4dbC0nK1s5c9lZd87LTylTxZNF5nVuXn7eKF+ZmaVU4kum7E/9MrryPP53kG8PaiZY6GaAlZz9waVfptWvp8MvyzcvP4/t8lYMBg39rCbPX2lna7s/5ldemEG+nfg/NRizjFxqWUVoFWstaJlt9t0mX7ssbPpgvo+J90Q5aLS0g43ZH/sZQQH5rkAvv5xZTr3/GMXrFKspasaRaq98zgBi/ZCvBhPrPjONqF5/vAEJkA8gCuQDCAL5AIJAPoAgkA8gCOQDCAL5AIJAPoAgkA8gCOQDCAL5AIJAPoAgXPloNNrfNyUfADwW5AMI4h/Sab/l40mjYQAAAABJRU5ErkJggg==" InformativeScreenshot="09dfbfa0be5ad4f679b4d0757cf6878e.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='PORTAL DEL CORREDOR' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V4" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                            <uix:Target CVScreenId="20371fe8-24cc-4ca4-bdf7-75931dd05bef" CvTextArea="676, 291, 125, 16" CvTextArgument="¿Que desea hacer?" CvType="Text" DesignTimeRectangle="677, 290, 123, 16" ElementType="Text" FuzzySelectorArgument="&lt;webctrl aaname='¿Qué desea hacer?' parentid='ModalNewSession' tag='SPAN' type='' class='' check:innerText='¿Qué desea hacer?' /&gt;" Guid="dc126c8e-cfd4-40a1-860f-c6e271f3a6be" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAH8AAAAUCAYAAACkjuKKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAK5SURBVGhD7ZfBrcJADETpiTaoATqgAQrgxoE7RXCmBo5caYEjx3wN0qDJxOskoC8Q2SdFhHjXa3u8G5g1lcky8weV6VDFnzBV/AnzcfGPx2OzWCya6/Xqpso/M1r8+/3ebDabZj6fP6/9fu/DBgFf2+12tPC3261ZrVbN+Xx200dBI6M2yOsbQDyqk9drlPgQCbsUTgmbAWJAlDFg7tg5oIrfD2JRTaid1qwjPsVUgbPnkS0SxwvDMUNPD+1iNpv7p91fI5nNTzIXD2vo7smaHOus1+vHxfHRRlF/as9q4nM1TuSDExQXbLvdLtQK/tRnR/wSWABJlRJHkViYPvHd7s3jeBcjASTJ+d5YGoveuy1aVwuEsdosjLvUqGwyxqXzuZbOxXi3Mxb97jagcUYncgTG65iO+NFCAIn4rlAQwHK5fHy6uEAFwr0XsNRcUTzqH/eY578bmKiLr0Q5lfwR3z2KN2FUB0Vr9k6c6qcEYnb/HfFLAUcBKGPE5871y4MDkS82BJ6x690XLt01fOYx+Rxc/mrwNd4VX/PnWj5X6YuzT/xIeNARHwtFA+E42plEOzdK2sUvFdCJfLn4WeIKiz6k4EBF5/pZ7O7PY+f6HKOx+1wls4GsBpmtJT6CRHB6xBIWXG0Yz0JoUTxpoAn0JaNE66r/aK0M9acNG4ExLvSr4uPeXycqTBZLZgOZwNncp/gMNBKecCfoGHazLsACezOwMNFaXjjFE+CaFBxz1a5F97laKI/T1/KY8P3VY1/v1Vb6wQfYaH1xZuJnPMWHs1LxFQbi7x9vADYKn59Op5Z/tetRWIKFx3U4HFqFBGwIXkNtFCHKwXOFH280JRMf4JO+kDsFpOAeS+QrijMT35tfScWPnmVcLpcwgMp3Ujz2/Xvl92j94POjuPRuq/wGnb96lelQxZ8wf4ORmxSDeQCKAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Cia'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="434,250" sap2010:WorkflowViewState.IdRef="NTypeInto_2" InteractionMode="Simulate" ScopeIdentifier="53e47d24-c541-4bb1-a184-aee386651bc0" Text="G" Version="V4">
+                    <uix:NTypeInto.Target>
+                      <uix:TargetAnchorable BrowserURL="generali.es/arq_genernetPortalFormWeb/CorredorPortal.po" DesignTimeRectangle="694, 467, 35, 16" DesignTimeScaleFactor="1" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl id='areaTrabajo' tag='IFRAME' /&gt;&lt;webctrl id='mainFrame' tag='IFRAME' /&gt;&lt;webctrl id='impresionBean_impresionDatos_cia' tag='INPUT' type='text' class='normalState' aaname='' /&gt;" Guid="d8a22c80-3303-46cd-a3ab-20b8cc653663" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACcAAAAUCAYAAAAOTSQ2AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACSSURBVEhL7ZbBCcAgDEXjBh6dzRUc1kFcwFvKL0SKXoqH9Bd8kIsG/iOIKkqMzAtMDLneu9ZaNeesKSWNMboV8pCLfHgsctjwlpoL+fBY5GCOhlKKhhBGgwettTsX+fAwhpxNDY0i/kcRuTY9Y1jYaO/FD+TA0wEcubccuV2O3C7/lKO+hKmfL+qHn/rLxAi13AVO+w6FmfgqBAAAAABJRU5ErkJggg==" InformativeScreenshot="6edf81770820967ed70bfd66e53ed4cd.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='msedge.exe' title='PORTAL DEL CORREDOR' /&gt;" SearchSteps="FuzzySelector, Image" Version="V4" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                            <uix:Target CVScreenId="ccb307a3-11b1-47cc-89b2-2d23f13babff" CvTextArea="523, 467, 18, 11" CvTextArgument="Cia" CvType="Text" DesignTimeRectangle="524, 467, 19, 12" ElementType="Text" FuzzySelectorArgument="&lt;webctrl id='areaTrabajo' tag='IFRAME' /&gt;&lt;webctrl id='mainFrame' tag='IFRAME' /&gt;&lt;webctrl aaname=' &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;Cia &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;' parentname='profile' tag='SPAN' type='' class='' check:innerText='Cia' /&gt;" Guid="3c049810-e41e-4059-b097-57fe37724d67" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABcAAAAQCAYAAAD9L+QYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACySURBVDhP7ZK9DcQgDIXZiDFYgQ3Ygy3oGYWeliGoaX16kWz5yA93Uq6J7kmR0Iv9GdsY+qHMbNypB8FjjGSM2T7nHPXeN7+UQiEEGmPMKacSOJKQDDgLQF3gWwm8tUbe+x0IPjx9c3jWWukw5/yWwxI4Aq7a1vBaq8RdjUvgV0HQ/F/f/ixvORbsAF1pODzexVxU6+OFznCeM85LOMQFVk8RZ45JKR12DO3e+Z36ww/1Ar9hTkd3NULsAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NTypeInto.Target>
+                  </uix:NTypeInto>
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Ramo'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="434,250" sap2010:WorkflowViewState.IdRef="NTypeInto_3" InteractionMode="Simulate" ScopeIdentifier="53e47d24-c541-4bb1-a184-aee386651bc0" Text="W7" Version="V4">
+                    <uix:NTypeInto.Target>
+                      <uix:TargetAnchorable BrowserURL="generali.es/arq_genernetPortalFormWeb/CorredorPortal.po" CVScreenId="fa769e6f-f9fc-4a03-8151-3f1745805b0e" CvElementArea="693, 492, 43, 19" CvType="InputBox" DesignTimeRectangle="694, 493, 41, 16" DesignTimeScaleFactor="1" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl id='areaTrabajo' tag='IFRAME' /&gt;&lt;webctrl id='mainFrame' tag='IFRAME' /&gt;&lt;webctrl id='impresionBean_impresionDatos_ramo' tag='INPUT' type='text' class='normalState' aaname='' /&gt;" Guid="fd6b2730-f8fb-4813-ab90-14e573b356f0" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAC0AAAAUCAYAAAAZb7T/AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAD5SURBVEhL7ZTLDYUgEEXpyAVF2AIdWIENWIB7XdMCHViERbh2Oy+XZMg8P4GFGEg8CVEGSA4XVFGFqGOhBoK01rr4dildMp/0W0Slh2Ega23oL8tCSin/BPu+U9d15Jyjtm39GLemaWhd17D2KaLSEIY4g3e5kW3byBhzksO43OyTRKUh0/e9TxSCSBUpc02OyzXYCObnICoNGUhBBG0cR19D2pC6ShRjfH1yEJUGLCEFuXYU5NPIlTJIkobUNE0hcVnjxOVc+Q3kIEma7y1k+O5CFP15nv/mHpPPQZI0/9bk3b2rydPIRZJ0aXzSb3ErXXo7SddEldI/yC+d+UZhMewAAAAASUVORK5CYII=" InformativeScreenshot="a8a130f4523aeaf3e1385d4f2f8fa137.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='msedge.exe' title='PORTAL DEL CORREDOR' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V4" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                            <uix:Target CVScreenId="fa769e6f-f9fc-4a03-8151-3f1745805b0e" CvTextArea="523, 493, 31, 11" CvTextArgument="Ramo" CvType="Text" DesignTimeRectangle="524, 493, 32, 12" ElementType="Text" FuzzySelectorArgument="&lt;webctrl id='areaTrabajo' tag='IFRAME' /&gt;&lt;webctrl id='mainFrame' tag='IFRAME' /&gt;&lt;webctrl aaname=' &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;Ramo &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;' parentname='profile' tag='SPAN' type='' class='' check:innerText='Ramo' /&gt;" Guid="722bdaad-43af-4659-ad60-36e1166a288a" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACQAAAAQCAYAAAB+690jAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADiSURBVEhL7ZLBDYQgEEXpyC6gBTugAhqwFqrgbBHag2evbD7JJwNxkWyi68GfEIcRPo9hVHyYVJ34t16gM2WgZVniMAxRKVWMeZ7LHRerANJapy/lvY/W2rjve85drSYQ4nEc47ZtaT5NU66cMSblUUFAO+dSHnEIIcWoOP2wFnvk3iM1gWSFYLCua8pjjjxgMPi0PBTgXAMPGde+tZo9JG9IySoRiDeWoFyLw/EPlaZXXXmprxWqb0FgeeNbgSAYYvA/TQjXC/Tzk9VARz3BxkUTw7gHSHp1N/VT9AKd6XFAH0KMJ9TvCq/2AAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NTypeInto.Target>
+                  </uix:NTypeInto>
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Póliza'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="434,250" sap2010:WorkflowViewState.IdRef="NTypeInto_4" InteractionMode="DebuggerApi" ScopeIdentifier="53e47d24-c541-4bb1-a184-aee386651bc0" Text="[System.Text.RegularExpressions.Regex.Match(in_strNumPoliza, &quot;(?&lt;=W7\s).{9}&quot;).Value]" Version="V4">
+                    <uix:NTypeInto.Target>
+                      <uix:TargetAnchorable BrowserURL="generali.es/arq_genernetPortalFormWeb/CorredorPortal.po" CVScreenId="6ba456aa-0d8f-4433-a719-12fcc1faa009" CvElementArea="693, 544, 85, 19" CvType="InputBox" DesignTimeRectangle="694, 545, 83, 16" DesignTimeScaleFactor="1" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl id='areaTrabajo' tag='IFRAME' /&gt;&lt;webctrl id='mainFrame' tag='IFRAME' /&gt;&lt;webctrl id='impresionBean_impresionDatos_poliza' tag='INPUT' type='text' class='normalState' aaname='' /&gt;" Guid="b5c0e2af-55b0-4145-a115-237f7405b681" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFcAAAAUCAYAAAD4BKGuAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGaSURBVFhH7ZXBjYQwDEXpiAM9QAt0MBXQAF1wpxSKoACOcOWa1Uf66K83aGA2luaQL1kTWU7GfnFMEbLcVFhHVjqdcKuqypbIonCz/q8M11EZrqMewR3HMbxer7Dv+2FYF0VxWN/3R8w8z6Esy9MPa5omrOt6GNbw8RxIz2LsXT9smqYzR+RBP/J95/fUbbiERihIkEAJLZY0Ylg81oghHPr1LMbc9eMMgtc18q3r+vhVv/1vT92Ci4S6rgvDMPzqOJUWT6EAxvMCLFAWy73cs21b1G//W/0A2bbtCZdrvQwolquHbsFFIrCrAlEACkFBFC+EPhuD8xQiobPLlmWJ+mOjQbvQvjC7l/sUtpfewkWygISkYnCvnpnug1LDpfRF8Ex2MccCxJkL8MjrK+AiYf046cfIAlOx2ymvsaD79bnbc1VfNRYoLRCwsLadBNmRQKX8oHGtHQqf5sfL1LxtR3vqY7h8Zmos+Ao8C0asPkvC1ldx129nrual3al+O8K89Ahu1jNluI7KcB11CTdbGvsDNyu9MlxH/QAXkLeVbaobrwAAAABJRU5ErkJggg==" InformativeScreenshot="b179dc4724912667fc33de37f9efdd01.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='msedge.exe' title='PORTAL DEL CORREDOR' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V4" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                            <uix:Target CVScreenId="6ba456aa-0d8f-4433-a719-12fcc1faa009" CvTextArea="523, 545, 31, 11" CvTextArgument="Poliza" CvType="Text" DesignTimeRectangle="524, 545, 32, 12" ElementType="Text" FuzzySelectorArgument="&lt;webctrl id='areaTrabajo' tag='IFRAME' /&gt;&lt;webctrl id='mainFrame' tag='IFRAME' /&gt;&lt;webctrl aaname=' &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;Póliza &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;' parentname='profile' tag='SPAN' type='' class='' check:innerText='Póliza' /&gt;" Guid="8726036c-2278-4e3c-952b-13d3614a1bcf" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACQAAAAQCAYAAAB+690jAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAD+SURBVEhL7ZTNDYQgEIXpyC60BTuwAhqgAErwZCkU4NG7HvXqlc0jGTKM6180u26yL5nwN8DHA1X+YVKy49v6baB5nn1VVb5pGjl0myJQ13U+yzKvlIpRFIUfxzEmI8daG9sE6JwLgTr6rigByvM8lCRjTAgS4PiGHOgubQLxUwMGjnHn3jnUtu3CaYxRLvWtubkJRA7Jt4MS7WmaFkB8E6yltQ59fd+HgHCYsiyTvUiH3pBcACXawzCsAnEYEncJe+0CSYdIZ4GQjzr/IDBO1yfX4zoEdObKCJLDQBwY9UsOQUcfdV3XybUjcAA+H1dJ86RO/Rg/oT/Qnh4H9AK7TR+sImStkAAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NTypeInto.Target>
+                  </uix:NTypeInto>
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Centro administrativo'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="434,250" sap2010:WorkflowViewState.IdRef="NTypeInto_7" InteractionMode="DebuggerApi" ScopeIdentifier="53e47d24-c541-4bb1-a184-aee386651bc0" Version="V4">
+                    <uix:NTypeInto.Target>
+                      <uix:TargetAnchorable BrowserURL="generali.es/arq_genernetPortalFormWeb/CorredorPortal.po" CVScreenId="d62575f6-a92b-4bd0-bab5-6db501a543d1" CvElementArea="693, 495, 55, 19" CvType="InputBox" DesignTimeRectangle="694, 497, 53, 16" DesignTimeScaleFactor="1" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl id='areaTrabajo' tag='IFRAME' /&gt;&lt;webctrl id='mainFrame' tag='IFRAME' /&gt;&lt;webctrl id='impresionBean_impresionDatos_centro' tag='INPUT' type='text' class='normalState' aaname='' /&gt;" Guid="439bd21a-46fc-4306-9fbe-9178be3e8bd1" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADkAAAAUCAYAAAA3KpVtAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADVSURBVFhH7ZXBDYQgEEXpiSJswQ7ow1oshSIsgrNXNs9kDOsy6sWEHXnJJPjxMM8h6PILcMfAIruk995cVSUt0SWtcEsyxpidc1vN83yZp5TyMAxbHkLI67rue8C70zR9ZU9yKUnD4zjmZVm2Yk2m5YAAIsghyccQ2EO+KUkaZCoIlE1ruUxRxMqpsSbnuTlJOXIiI83W8nLCQHY8sl3yAW5J1o6llp8dV6E5Se2C0XI4u3hkvylJoEn5VZQNa7lMU7tFm5T8d7qkFVRJa/UjaZlXSH4AzkDUQUgWdhMAAAAASUVORK5CYII=" InformativeScreenshot="f2b4a79efdc88409b8828aac353287cb.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='msedge.exe' title='PORTAL DEL CORREDOR' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V4" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                            <uix:Target CVScreenId="d62575f6-a92b-4bd0-bab5-6db501a543d1" CvTextArea="523, 497, 105, 11" CvTextArgument="Centro administrativo" CvType="Text" DesignTimeRectangle="524, 497, 106, 12" ElementType="Text" FuzzySelectorArgument="&lt;webctrl id='areaTrabajo' tag='IFRAME' /&gt;&lt;webctrl id='mainFrame' tag='IFRAME' /&gt;&lt;webctrl type='' class='' parentname='profile' tag='SPAN' aaname=' &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;Centro administrativo &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;' check:innerText='Centro administrativo' /&gt;" Guid="9fc84d6c-5610-4790-8038-72a7625adbde" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAG4AAAAQCAYAAAD3c0pKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJTSURBVFhH7ZfNjcIwEIXTEV1ACdABFdAAXXCnDW4cKAHOcIQr16y+SM96OxsbWNBqLflJUZLJ/DzPG1vQ9Q1VoouGhjrQhKsUTbhK8UO49Xrdd103XLPZrL9er9HlaZBru91G80dBfuo8g/v93i+Xy36/38dPCXzDB98x0I/FYtEfj8f4KQt8iSH2Fb4lJOG0KE/KIn4rnvL9J+E+AUSYTqcvCfdOH3NIwvlUOLDLRpO0G9UsSBHHhV3TKt/JZNIfDofh+2q1SgsgLuaKyO1+xZKbnPhpJ2w2m/RNDeMdPr7jcrx9x/l6sd1ut+Gu991ul3LAQfk95nK5JA46gbjHnY1NffC6ucFPwuFQOiK8UGwATZLAkMTmO052kfCpze1MYk6n0/Ds9cZqSDjsWjx3ia21qfEl3lonDdeR6PWdu+cA5/N5uMRf8fg5Fx805WcAo6/zikjCxQmI8CnQpclRIV/gmHAiEGuVjjvfdWqs7z5vhNfwnKoXhRvj7dxU27lG4ZwLUC7iJKr7OS/1Dx+EIzb2guc41ODhUanAmFDINeBd4eDDwvkWG/tXwgEXgpwl4XjXgGEr7Tj5e38jb/BQOBH0IC/IsybIRck1oCScL979HD5IElENUS7nHGvEBr0qHEcld4miBj4STqJ7v9zPeUnc+Xw++CmHfOOaHN/+Dvh0cTkpQFE/JkGuAQAf/TiJBHiOuRzOhTtHicRVbPxx8knh1HxxlE11eOfHifdI3/CHl3Jq8CS+r5d35Xab6saBFn78j2uoA024StGEqxRNuErxBVNQsrQJBdRhAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NTypeInto.Target>
+                  </uix:NTypeInto>
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Adhesión'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="434,250" sap2010:WorkflowViewState.IdRef="NTypeInto_5" InteractionMode="DebuggerApi" ScopeIdentifier="53e47d24-c541-4bb1-a184-aee386651bc0" Text="[System.Text.RegularExpressions.Regex.Match(in_strNumPoliza, &quot;.{6}$&quot;).Value]" Version="V4">
+                    <uix:NTypeInto.Target>
+                      <uix:TargetAnchorable BrowserURL="generali.es/arq_genernetPortalFormWeb/CorredorPortal.po" CVScreenId="d62575f6-a92b-4bd0-bab5-6db501a543d1" CvElementArea="693, 522, 67, 18" CvType="InputBox" DesignTimeRectangle="694, 523, 65, 16" DesignTimeScaleFactor="1" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl id='areaTrabajo' tag='IFRAME' /&gt;&lt;webctrl id='mainFrame' tag='IFRAME' /&gt;&lt;webctrl id='impresionBean_impresionDatos_adhesion' tag='INPUT' type='text' class='normalState' aaname='' /&gt;" Guid="385a5810-6a3b-4034-bfd5-d4620c922e90" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEUAAAAUCAYAAADbX/B7AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE6SURBVFhH7ZXBDYMwDACzEQ92gBXYgAlYgFkYhSEYgjffVIdkarlxwyd8yEmWwE2i5LDTECs/BJuoKClt274+klLeTJWSoEpJcEvKuq4xhHDGsizZ/L7vse/7Mz+OYzyOI27bFpumucYTjGEszPN85VlXryHBfNYpTVYKmxuG4dwMwTM5Lw8cEEnIQAqHtDBG8ozlHVhrmqZzroYxWnxJslLYuHxRfUgvL184dWC9plQQgYR/FWCll+aWFH0Anjmol9cVBORkHFgJ8k7o9tHoqnqCx6XY9pDKktbQFSi/M/+pKoFbUlJt4uVz7WPvBj0XkNZ13SWVvG2/0mSleBeqlwfvorWtI2hxtlKebh3ISgE2lep3Ly/VQl5/Za8VRJ792/UkluaWlLdRpSSoUhK4Ut4eP1IqX6qUBB/dewTRe6YrWgAAAABJRU5ErkJggg==" InformativeScreenshot="afe36d301f056f1ff9b66dac6d3e060f.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='msedge.exe' title='PORTAL DEL CORREDOR' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V4" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                            <uix:Target CVScreenId="d62575f6-a92b-4bd0-bab5-6db501a543d1" CvTextArea="523, 523, 47, 11" CvTextArgument="Adhesion" CvType="Text" DesignTimeRectangle="524, 523, 48, 12" ElementType="Text" FuzzySelectorArgument="&lt;webctrl id='areaTrabajo' tag='IFRAME' /&gt;&lt;webctrl id='mainFrame' tag='IFRAME' /&gt;&lt;webctrl aaname=' &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;Adhesión &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;' parentname='profile' tag='SPAN' type='' class='' check:innerText='Adhesión' /&gt;" Guid="e842a91a-eb8a-42c7-ab42-6ce58aac39e6" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADQAAAAQCAYAAABZRVzLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFWSURBVEhL7ZTLjYRADETJiCwgBTIgAhIgAKIgFO5cCYAjXLn26rVUI+Np0KAZrXbRlISa/tlVdkEWbobML/x3fAX9FoZhCGVZhmVZ/NYpngRN0xTyPI8Bj9D3fWjbNmzbFuq6jvN3AOmqqmJuoeu63fxVPAmCXNM0MeARPi3Ig7hXOyPsBBEIMeM4xtFWiI5lWRa7x54VxJx19tVZCGEZ3VEsOcCu+w5RIPZ5VCxGcikm+VPYCSKgOkMABRM5yEqEFcTDu5Ku6xpHiWPUGe5ZksytIPvt2Lyc1TrniqJIWnIniEsiwWEqDwn/gR5ZTsTneX5UUo+6YTstQlaQYgsqgIolO/pvTngIshZJkbgq6CihwB1y+PMfE2RtIVhLnFnOC5LlRMwWhDVvRSvozHKXBFlvC1zgIgGsVfxPwQtS0tRPIbXuCap7qZ/Cy4Lugq+gv47bCfoBDNqyjqkSr0sAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NTypeInto.Target>
+                  </uix:NTypeInto>
+                  <uix:NSelectItem DisplayName="Select Item 'Documentos a imprimir'" sap:VirtualizedContainerService.HintSize="434,189" sap2010:WorkflowViewState.IdRef="NSelectItem_3" Item="Certificado individual de Seguro" ScopeIdentifier="53e47d24-c541-4bb1-a184-aee386651bc0" Version="V4">
+                    <uix:NSelectItem.Items>
+                      <scg:List x:TypeArguments="x:String" Capacity="4">
+                        <x:String>Condiciones particulares de Póliza</x:String>
+                        <x:String>Condiciones particulares de Centro Administrativo</x:String>
+                        <x:String>Listado de Adhesiones y Aplicaciones</x:String>
+                        <x:String>Certificado individual de Seguro</x:String>
+                      </scg:List>
+                    </uix:NSelectItem.Items>
+                    <uix:NSelectItem.Target>
+                      <uix:TargetAnchorable BrowserURL="generali.es/arq_genernetPortalFormWeb/CorredorPortal.po" CVScreenId="5787b089-94e8-4ecc-900a-bcfef47b120c" CvElementArea="523, 697, 269, 18" CvType="InputBox" DesignTimeRectangle="524, 698, 266, 16" DesignTimeScaleFactor="1" ElementType="DropDown" FuzzySelectorArgument="&lt;webctrl id='areaTrabajo' tag='IFRAME' /&gt;&lt;webctrl id='mainFrame' tag='IFRAME' /&gt;&lt;webctrl id='impresionBean_impresionDocu_impresion' tag='SELECT' type='' class='normalState' aaname='' /&gt;" Guid="d90303f9-0f2a-4ec1-91ea-3409ed961a6e" InformativeScreenshot="588fd490c1e904a40676929d216b3f0c.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='PORTAL DEL CORREDOR' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                            <uix:Target CVScreenId="5787b089-94e8-4ecc-900a-bcfef47b120c" CvTextArea="523, 678, 115, 13" CvTextArgument="Documentos a imprimir" CvType="Text" DesignTimeRectangle="524, 678, 116, 12" ElementType="Text" FuzzySelectorArgument="&lt;webctrl id='areaTrabajo' tag='IFRAME' /&gt;&lt;webctrl id='mainFrame' tag='IFRAME' /&gt;&lt;webctrl type='' class='' parentname='profile' tag='SPAN' aaname=' &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;Documentos a imprimir &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;' check:innerText='Documentos a imprimir' /&gt;" Guid="0bc1095a-2feb-4c66-8b5a-d0fc22123c45" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHgAAAAQCAYAAADdw7vlAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIXSURBVFhH7VfBjcJADExHdEFKgA6oIA2kCvhTBW8K4Mkfnsk335wmp1lNLO8SRCLuoh0pYuP12l6PbaDoM1aNwgoy1oVM8MqRCV45AsH3+73fbDZ9URThORwOfdd14xN/EE3T9Pv9frjD0rher7Pn5d3434lhRPB2ux05qet6sqFvwos94xdJgm1loXLY3SCfwJpy6KAgUBjn8zmcY6FAVlXV8E47kGFdluXg09pUO4gHDydM27bBFn3ABmylbGr8BONOTTDehX5Pp1OYfJfLZXQv2lMdnAdwJ+whvuPxGPI8JT82BujAvlfgSYIZIAzqvhKIPTrGHgJ9Pp9hH7AEMxg8WENGUqCLdxKgRYY9nlX9WGwAE3m73QY7OGcLl3g8HsNj/Spscr17MSfMA3U0V9DnWn1NyY+NwStWYjLBShJAEpQMey5GMNd6MfWlnaZdrAmKFZ8lBp9adLHuJbSLva6wyfXuaH1iD7BEenmIyT0ubAwekgTb7qFjYGmCvaA/IRhygJ2g41LtU27tqI6X3H9JMBKtQXtjUJOuOjhL4tXOlAtAR8eXjqZXBNvioj+MaHy3YV/PKpQkrOfqYOZB44/lISafheBXf5NgmHvatXCgo9TTpa0pFwB0TKtNj2AWgdpll1LfxmmnDqDn+EMnVgQ2uSmCd7td8Et7sTzE5B8TnDE/SEqKgKWRCV4QmeCMxZEJXjl+AEcxCC9vm+xfAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NSelectItem.Target>
+                  </uix:NSelectItem>
+                  <uix:NCheck Action="Check" DisplayName="Check/Uncheck 'Spool/BEX'" sap:VirtualizedContainerService.HintSize="434,194" sap2010:WorkflowViewState.IdRef="NCheck_2" ScopeIdentifier="53e47d24-c541-4bb1-a184-aee386651bc0" Version="V4">
+                    <uix:NCheck.Target>
+                      <uix:TargetAnchorable BrowserURL="generali.es/arq_genernetPortalFormWeb/CorredorPortal.po" CVScreenId="0ef063d3-15a6-4a2b-ad77-73227e080f0d" DesignTimeRectangle="856, 672, 13, 13" DesignTimeScaleFactor="1" ElementType="RadioButton" FuzzySelectorArgument="&lt;webctrl id='areaTrabajo' tag='IFRAME' /&gt;&lt;webctrl id='mainFrame' tag='IFRAME' /&gt;&lt;webctrl id='impresionBean_impresionDocu_tipImpresion' type='radio' tag='INPUT' class='normalState' aaname='' /&gt;" Guid="c5df16a2-a3fb-4c1a-a382-7c8521121a68" InformativeScreenshot="c048c9e388cac1a7e33b75ec8d3fe2df.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='PORTAL DEL CORREDOR' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                            <uix:Target CVScreenId="0ef063d3-15a6-4a2b-ad77-73227e080f0d" CvTextArea="872, 675, 55, 13" CvTextArgument="Spool/BEX" CvType="Text" DesignTimeRectangle="872, 675, 56, 12" ElementType="Text" FuzzySelectorArgument="&lt;webctrl id='areaTrabajo' tag='IFRAME' /&gt;&lt;webctrl id='mainFrame' tag='IFRAME' /&gt;&lt;webctrl aaname=' &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;Spool/BEX &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;' parentid='impresionBean_impresionDocu_tipImpresionElementIdentification' tag='SPAN' type='' class='' check:innerText='Spool/BEX' /&gt;" Guid="ca808cbf-9ef4-489e-954b-16ef9cd1b6c1" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADwAAAAQCAYAAABKkhw/AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFuSURBVFhH7ZTBbYRADEXpiC6gBTqgAhqgC+60wJEbB0qgCM5ciR7SR8YZbxJtcgi7XxqxGI/9v+fPZvuLIfOBu+Mt+O64CN62ba/res+y7Fh5nu/LstiUp7Gu615V1VmXd3oOw3D21Wrb9sghFy7+e9/3J2flgmmaQu4XwRRgM0X0XpblQeq34AVDDrI8bS+bxyqKIikA2Fxf3+MimMZ2UhaIb5rmdICfqD+VKO4JUZe8ZwQD9sOt67qjZoSLYJrQFIL+ZCkimyiPJpaM7EVuFLdCiDNEftvhaBEDfE9ZWt8tx+jAhPBPi80UlcV9MX7rdPw1kEVTcX9yCCYndcKpoUZQfnR3hVAwsOT+QjAx2c8Ltj2+Izji43EKTv3b0ZwYT4qJUDT9n1pagwFecNQjBS+SupG1wzvMsvaALE11l2xBe/++ikvwPM/nMH2u3wOH1B1m/ziOn2wsHXKPxUNLW7D5kVX+C96C746XE/wBumVn8o4MyhIAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NCheck.Target>
+                  </uix:NCheck>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Confirmar'" sap:VirtualizedContainerService.HintSize="434,180" sap2010:WorkflowViewState.IdRef="NClick_6" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="53e47d24-c541-4bb1-a184-aee386651bc0" Version="V4">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="generali.es/arq_genernetPortalFormWeb/CorredorPortal.po" CVScreenId="d62575f6-a92b-4bd0-bab5-6db501a543d1" CvElementArea="1341, 854, 78, 21" CvTextArea="1358, 858, 50, 11" CvTextArgument="Confirmar" CvType="Button" DesignTimeRectangle="1343, 855, 75, 18" DesignTimeScaleFactor="1" ElementType="Button" FuzzySelectorArgument="&lt;webctrl id='areaTrabajo' tag='IFRAME' /&gt;&lt;webctrl id='mainFrame' tag='IFRAME' /&gt;&lt;webctrl id='confirmar' tag='INPUT' type='button' class='falseHidden' aaname='Confirmar' check:text='Confirmar' /&gt;" Guid="ce1b8948-b5b6-4e6a-8844-74339094e54c" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAE8AAAAWCAYAAACBtcG5AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJbSURBVFhH7VhHruJAFPRt4A6EAwBr0h1IN0BiRTwBGyRALFgi4poMIgeBQISD9KhaepYx9Nhj5s9suqVSv1cvuuB/SyhMHstH0RPymD+qeO12W8IESqXSZ/Gez6eEATKZzGfxHo+HhAGE4t3vdwkDCMW73W4SBhCKd71ev8J+v2fhcJgpisIBG5w+zywSiQTvEwgEvu71tyAU73K5WMZ8Pmdut5sVCgWVgx0Khdhut3vLNwL6+Xw+1uv13mL/E0LxzuezZdRqNRYMBtlms1E52N1uV+Xy+bz6rYRNdRAJAI8es9mM3/BdLhcrFosvfDweZ3a7ndXrdV6XSqV4Ljj0Q41+Bs0F4GMnbS/sqX+mTxCKdzqdLCMWi3HoeQI91GQy4YANDsDynU7nhYft9Xo5Tx/MdDrlN82hfPJx04xcLsdz1+s1r6c9wCMPvLaXWQjFOx6PlpHNZlk0Gn3jRXHY4KrVKnM6nWw0GrHlcsn/v4GDD/FarRb3wY/HY36jDj2Qg1rE9TOoBj3Jp28ecmgW9TILoXiHw8EyKpUKX2axWKgcbHCIYSiWphhscIhBgOFw+JIP3+PxsGazqfaGWLhRhx7IQS3i8LUz9DW0G+XQLOplFj8iHj2IdhnYtLRWJO1D/yvx4FP/HxEPb8Vv0O/3mcPhUP88/H4/f2tSPJ1OqzHY4MrlMq9BLXJRAw4+xGs0GtwHPxgM+E21NA9x6h+JRNS+NJ/m2mw2lkwmP/YyC6F42+1WwgBC8fAGkvg9pHhfQCjearWSMMBH8fAjHwISxngTT54/P1K8L84vzzo5noX9HKEAAAAASUVORK5CYII=" InformativeScreenshot="953913b0667c5e8fa8c8f3e0570f234a.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='PORTAL DEL CORREDOR' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V4" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                            <uix:Target CVScreenId="d62575f6-a92b-4bd0-bab5-6db501a543d1" CvElementArea="522, 854, 78, 21" CvTextArea="541, 858, 46, 11" CvTextArgument="Cancelar" CvType="Button" DesignTimeRectangle="524, 855, 75, 18" ElementType="Button" FuzzySelectorArgument="&lt;webctrl id='areaTrabajo' tag='IFRAME' /&gt;&lt;webctrl id='mainFrame' tag='IFRAME' /&gt;&lt;webctrl id='cancelar' tag='INPUT' type='button' class='falseHidden' aaname='Cancelar' check:text='Cancelar' /&gt;" Guid="2be987c3-8955-4c30-ba78-f37674618355" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAE8AAAAWCAYAAACBtcG5AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAI8SURBVFhH7ZhJqsIwHMZ7G72DwwHUtcNW3DrdwK3zGQQVcS1OC3eiKOKMoigOB8njCyTE1tj6WncJ/Gj8/lPy0UfhaUStfy9NL6hlfXHz+v2+wgK1Wu29ec/nU2FCoVB4b97j8VCYIDXvfr8rTJCad7vdFCZIzbter46RzWaJpmkUv99PFouFIecXVKtVOluvO4XUvMvlYpv9fk9isRi9ANPa7TY3UJ/vNJVK5WW200jNO5/PthkOhyQUCpH5fG7QmZbJZPhb6fP5qN5qtWgdgB6NRsl2u6X5iLF81LKeYp9yuUw1PFmOWAfwG7MwI5FI8Nn6O3xCat7pdLJNqVSiF99sNoYYmM1m1EjskYNcXAq43W4yGAxoDi4GTdyL+ZiTTqd5z2AwSGtFHXniuaCzfvitP5sVpOYdj0fbNJtNEolEyGq1MsREUqkUfyNQA7xeL5lOp7QWPaD1ej1qDHRZPaNYLFIQE8/D4tDRB3Og689kBal5h8PBNt1ulwQCATKZTF50HByDEccbhv1yuaQmNRoNCi6FOlE366efDw0x1gNgz3T0wRz01tda4afmsUPjoEwTjRHNYEZ+Mk+8LNNxAcDyxRy9eWLdT83Dl9IJ8FUNh8P8z8Xj8ZDxeGyI4RmPx0k+nyf1ep3nsRxoqOl0OsTlcvEaxKEnk0k+Az2g4Qmd7RFDbS6Xo7Wj0YjOYb2/RWrebrdTmCA1D18zxWeUeTaQmrderxUmvDUP/+RjXzHFZwzmqfX9UubZWH+U2k1dVhjtnQAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence sap2010:Annotation.AnnotationText="" DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,120" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Sequence>
+              </If.Else>
+            </If>
+            <Sequence DisplayName="Gestor de Impresión" sap:VirtualizedContainerService.HintSize="556,1464" sap2010:WorkflowViewState.IdRef="Sequence_15">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Gestor de impresión'" sap:VirtualizedContainerService.HintSize="522,189" sap2010:WorkflowViewState.IdRef="NClick_7" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="53e47d24-c541-4bb1-a184-aee386651bc0" Version="V4">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable BrowserURL="generali.es/arq_genernetPortalFormWeb/CorredorPortal.po" CVScreenId="7432cd04-f9e0-409e-aefc-762657a53501" CvTextArea="1626, 161, 127, 17" CvTextArgument="Gestor de impresion" CvType="Text" DesignTimeRectangle="1605, 161, 152, 16" DesignTimeScaleFactor="1" ElementType="Text" FuzzySelectorArgument="&lt;webctrl aaname='  Gestor de impresión &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;' parentid='page-wrapper' tag='A' type='' class='' check:innerText='Gestor de impresión' /&gt;" Guid="16667834-8ca6-49a8-a025-bc9822e8216a" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAJwAAAAUCAYAAAB4W1T4AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAN/SURBVGhD7Zm/a9tAFMfzz9oEPMTQQkkHZcjQ3QSEKBRCSYfM1pKhHtLFgzXUg7t0CdQZMnkwBIN55U466f24O8myLTf0vmCI7ue79z73nuycQVBQhzrjDUFBx1QALqhTBeCCOpUbuO0K5nfXMBz0oD+4gOu7n7Da8kFB/4uW4wj6/QjSZ96zm5zA/b6/hOHNI7xsAGDzAj9uLvLnfaDLYuj3e+RzNV7yUS21hDTqQZzx9gPqOYWrtk7fZ26XstqpfMvb2skB3AJuh59gssJta8iS9tBliQIsBsrDDGIFXjIjre30jwP3prWE5YHO3AC4NWRf3uls9D5+gIe4BXQ6s3HYCukg0r48fZssSANs78thk1mTthOw1b5RCqm+CG7o84tSrJvEDDi2fpSCM19jWM2ZccZX++t2s17lE33mZEZswRdLtcdjM9fuE24bXovERlyqIikYH6CKlNuVOnxvlwM4VFK3asMRTF9XMFUZLvkOkx2hU4erM8RIHwI7B8PKwSXPPMMVDi9BYs9FcH126aCUtpgA0oDi+Xq8A1wJnLSFn8WsbS5ZuVcx3pxVVg+/bdzH5JkAl8NWrUOfjV2lz3U8/BXACZz60iAA2xRtJtMlM1jzeUIcBJ/UgaTBJbAcOCK2j22sCLrcq1LuXGI3nqPWFxnNbr+Wd28JiMlq5d+2DFX0C9BrbLOtVwrZZh2H/Cr7LT5jcgOnZKDDpRRBt3giL3kO2YCjabq8JaSk0E8eDFom6Jp0H+kMJQSECDqTtZ8FzWKn84Y3AA6fRwDHMic+Hweu3jbsf2Yvso2vW/UfCzglH3TJtNFPJf6SiowUgXCregcx408AnFjfo66Ba2QbvsBFNTg5cEoYuiSC2/mmavu64KOlbOWtFDay3mAqXIpOUFL5+j55924A3K4ldRfbHJfetu9xSypW+U6HstrrI4zOP8OcDbVJvtgqVTeMZCYyDh2CO5IEjgetWLsMBHsWQZeiDjW20v0aB3pf4HAg2XwBXI1tAhRsN1k79733S8PRgFMy0BU/CG9+fYOPl/fwxMe5pA/G3it4yiblksJY12cCIyCz7SWCbhfeL//pAc/B70Lq44BNaV/gohhix/urBE7JZxvzC7ZF2EbXEV9sjgqckv6XVwSD8x4MPoxg8ocPCDq0ZGDfrnYHLqhzBeCCOlUALiiopQJwQZ3qL3YOmUNz3g/IAAAAAElFTkSuQmCC" InformativeScreenshot="5e976bb3e15a53072bf129d7f505dab7.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='PORTAL DEL CORREDOR' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V4" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target CVScreenId="7432cd04-f9e0-409e-aefc-762657a53501" CvTextArea="1545, 162, 53, 15" CvTextArgument="Imprimir" CvType="Text" DesignTimeRectangle="1524, 161, 76, 16" ElementType="Text" FuzzySelectorArgument="&lt;webctrl parentid='page-wrapper' tag='A' type='' class='' aaname='  Imprimir &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;' check:innerText='Imprimir' /&gt;" Guid="a0c881e8-3376-48a1-bb91-ac8c458d3a95" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFAAAAAUCAYAAAAa2LrXAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGOSURBVFhH7ZexcoQgEEDvZ7VIlcImKbgv8Io0jF9xjbSXm0mRSv8hKbRIdW1mMptBRHABxcEYJ+HN0ADrymPBuwNEgjjgjsgyosBAosBAnAJv1xzSNLG0O8iKF/j4whH/E6fApiRwLBvc3fVzkff5BRoviQ0wklif9TNUQNMEaI37PWgZHFMCrMUDbhYL1Cvz6fUTD1vYWuC2LBYomRtXYIG8Qgiwmu92fy0QBk1fOWJzVBV0FV9UUBfqGtGri/fTUj6Lx+kVuCzXuAL5HAqsP3EizuSXBOovJBejFtLJKioR3S9giO8WqSQKsRSUUyzQP5cpUBtzYApsL3DKxO5MCZILS7McnifvDLtAXEWjF63psOguD9p9fb4RaxHom8smcO4uNQQOYjza4/kN3s8Pk6J9BY6egQWiKtClGkI8BLpybS5QtihQY5cCVz7CrlyrC5wS4ztvFYH6fPRbbXcCJXNf2blxxQoCCQVKVMXj2F0KdP+VU+10veGw1bEd4T3hFLgXosBAosA/ThQYyDeVQzjS6l2b9wAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image, CV" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NClick.Target>
+              </uix:NClick>
+              <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Edge: Inicio" sap:VirtualizedContainerService.HintSize="522,1188" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" ScopeGuid="d49c4c7e-fd0e-4fc5-97d6-8ac83ec72906" Version="V2" WindowResize="Maximize">
+                <uix:NApplicationCard.Body>
+                  <ActivityAction x:TypeArguments="x:Object">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                    </ActivityAction.Argument>
+                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="488,946" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                      <Sequence.Variables>
+                        <Variable x:TypeArguments="x:String" Name="strUrl" />
+                      </Sequence.Variables>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="454,586" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                        <TryCatch.Try>
+                          <Sequence sap:VirtualizedContainerService.HintSize="416,244" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'CI Poliza'" sap:VirtualizedContainerService.HintSize="382,182" sap2010:WorkflowViewState.IdRef="NClick_8" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d49c4c7e-fd0e-4fc5-97d6-8ac83ec72906" Version="V4">
+                              <uix:NClick.Target>
+                                <uix:TargetAnchorable BrowserURL="generali.es/gpf3k/arq_genernetPortalFormWeb/mediadorPortal.po" CVScreenId="d995c60c-92c0-44a5-b848-41069bc813f2" CvElementArea="787, 345, 20, 21" CvType="Icon" DesignTimeRectangle="788, 348, 16, 16" DesignTimeScaleFactor="1" ElementType="Icon" FuzzySelectorArgument="&lt;webctrl id='areaTrabajo' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' class='' tag='IMG' aaname='' /&gt;" Guid="a8bb3cdc-40d9-4cc3-b03a-fb28804c05cc" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJlSURBVDhPrZLLaxNRFMYn2XXnX6BduivSVRAqpRYXrlwUhZYsunNRBd0Ikky78AUqSE3TqtBIAk2UmsfK0ASyECFmJyQFMZBgyEyY5DIPJndCkvnk3rYJJiYNtAc+5p4z5/vdmXuPgHMOYbBw1hgCZrNZ5PP5scrlcpBledDKYwiYTqdh2za63W5fLCd1dDUCq9UCpRSZTAaapg3aRwM7nU5ftg1r6SrUjXswbRuSJPEe1qsoyj/+yYELl6E8cMOybZTLZQ7VdR3RaJSvT2JiYPvVY9TX1/jaMAxUKhUUi0WoqopEItHzjwS22+2+WB70gbimYVoWh7JzZF/INozH4z3/REAGMJ88ROP2NWjra3wDVmMw1jsRsNVqHanTQbtWRePuEgxK0bx5BWbkA9rf06C6djowlUrxJvZL1LJA2YWEtqHcWYD67iUaG/dhuC6h7ppG7dch743FYj3/SCA7qyalML9God5yQfI9RaPwE1qnC730G8qPbyC6zueU3fRJ/BfIBlmXqyAvHkFauYHy5jMQ24ZmmiCEgBgm1CaFSgg/llOBbNYa2Qzklesov3+NapOibllQKO2L5ZbFB/3LWOBBEjTxCXLgIyS/D9VgCLVIBPLe3pGCQcihEOTdXdQCAWjhMPbD4Z5/GJhMQL/gwB9BQOVY+uoqtOVlkLk56G43pKkpXq8KAhpOJ/Z3dnr+IeBBMoHuRSeIIHAxgzE7C31mBs3FRRjz86g5HJAFAbXj95/HAUulEvzPvdgWRS6/KGLL48EWe4oifB4PfF4v3ooiNr1evPF4cFgo9PxDwLPGuQP/Aho1p3ItuIWqAAAAAElFTkSuQmCC" InformativeScreenshot="bd3de3ebf1fedddb7b5f9bd684f12d39.png" ScopeSelectorArgument="&lt;html app='msedge.exe' htmlwindowname='genernetPortal580143' title='Inicio' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V4" Visibility="Interactive">
+                                  <uix:TargetAnchorable.Anchors>
+                                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                      <uix:Target CVScreenId="d995c60c-92c0-44a5-b848-41069bc813f2" CvTextArea="833, 351, 202, 14" CvTextArgument="[&quot;*&quot; + in_strNumPoliza + &quot;*&quot;]" CvType="Text" DesignTimeRectangle="833, 351, 202, 14" ElementType="Text" FuzzySelectorArgument="[&quot;&lt;webctrl id='areaTrabajo' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&#xD;&#xA;&lt;webctrl isleaf='1' type='' class='' tag='TD'&#xD;&#xA;aaname='*&quot; + in_strNumPoliza+ &quot;* /&gt;&quot;]" Guid="96948b4e-f884-49f0-a295-399031ec2c6c" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAARIAAAApCAYAAAD5/ab5AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAASjSURBVHhe7ZnRcdw6DEW3j7SQQlyOt5YdFeIt4H36zzPbhVODf/SGFCUBlyBXK/4l58xgYkskCFLAFeRcPn7/mjEMw0bsohcwDMNeNYQEw7Bhu8wAAIMgJAAwDEICAMMgJAAwDEICAMMgJAAwDEICAMMgJAAwDEICAMMgJAAwDEICAMMgJAAwDEICAMOcF5KvaX57e9vs+vG93/tzn69v0/yw4x3f8/19n+vnL/emLzO8rFVfm+b/Pq7Oz2LX+f7HjE3kmMx1iX/1/f3MX/ZTrt/8Dh+3YPxyZ57WOe/32ZyUmSNnKPfqvcf+evHZvTl/nfi2Ebc6vlP+wvjMeGvh/f1s7fns1ss7i6xp47QxhvGAck5IciLbYlmKf0u0rpCUB+geynJtTUZN2pSw1/erm5OTOHiwObmq66twrTGn9Ux8RZR0VsL7s3H6Ped41mR0/vw45y+NC32LPyuCJcntWcU+5JnYmJyoduIrrAXrhOSUv058lo6/vK6KU6bjr2KJQ3MsPG84xAkhaTwwKx4dIXEPTK/bAtvGpPWu8/3L+0wJ6t+C7XWzEN2mTnL4It5Qf/K73YsXP+sv/aydUB1jwvpoFqAWUufcbXxeeO0z7MVXBPj2CMX9ZX+d+CxurTQnGFOh59IhXtd0wgjJy7wuJEcOWQtwoyFCFbZjWH8ugrJ1FHUMmuyZNZZe3I17lT9N1q1ITBJmzD71LBprVWJWFWCZozH07hkfupdNqA7GF83X35/668S3ofPTmNt9ETT5tNnR8+9xIAcbZwBtTgpJJBKG5pj6ga9ts/9ONeNyIpX3Y+os1uLUN0pjza1zaSZHI7ECf9WbbCsE7WiMTy2WII7sV7/TE3mufPfn+fIJVPy146v3uBX+gfjW8fv8c/7a8e2oQK1n4PYbnZNea1LnYEU5Y/f3kcP+/01OCkmdaI6gCBfqBNyQZFhFI/3r3tJrssp3vG+1C3ZcGPcSTzWv5y8sBE3OMx1J/akUftpY4Unf+fmTrfhvxlcX6KEOwhDN19+f+uvEV7zUnabOCeLTWPp0cnAlWAP6vC4kzQdhPkc0mQzhGyURJUxuae0DfczT+31+WHHJaCEvuG5ns9Vfax/7PfWn+9LC332d+xvJfk87HBUWgz23TnxeGO3ej8WnxXrKXye+bazmhuZSVeSB+DyhWrfwvHuFFieEZE0Oe9DyZteH71iKxBdFueYebhKN9L819lpaZ5qnm/o+kEwuOXoikmj5swXufbjkdMXox1lB0K7H3os6krrD0X2046sLOj6LlmCpkJzz14kvOI9y1Yl69qcvnGautTDnWVi6vGg/cIRzQpLIiWTe9DYBDjxc7Raioo6SOnybHFjPJUf+WTsV0wH0/Nm5Etu+J03CIpSVWMo5VKIZn6/9tNEYevHZeb7base3jVAhOeuvE1+0Rrmz+9PnEnUxh7A+xS9C8jLnhQQAoICQwF+HdrvWqr97vYR0ic7+7Q4GIQGAYRASABgGIQGAYRASABgGIQGAYRASABgGIQGAYRASABgGIQGAYRASABgGIQGAYRASABjm8vn5OWMYho3Y5efnZ8YwDBux/wFF6CYrMp+VkwAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image, CV" />
+                                    </scg:List>
+                                  </uix:TargetAnchorable.Anchors>
+                                </uix:TargetAnchorable>
+                              </uix:NClick.Target>
+                            </uix:NClick>
+                          </Sequence>
+                        </TryCatch.Try>
+                      </TryCatch>
+                      <Assign sap:VirtualizedContainerService.HintSize="454,114" sap2010:WorkflowViewState.IdRef="Assign_2">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[strUrl]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">[Directory.GetFiles("C:\Users\juanfrancisco.sanche\Downloads\", "*" + in_strNumPoliza + "*.pdf")(0)]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <ui:MoveFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" Destination="[Path.Combine(Environment.CurrentDirectory, &quot;Certificados&quot;)]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="454,184" sap2010:WorkflowViewState.IdRef="MoveFile_1" Path="[strUrl]" />
+                    </Sequence>
+                  </ActivityAction>
+                </uix:NApplicationCard.Body>
+                <uix:NApplicationCard.TargetApp>
+                  <uix:TargetApp Area="-1030, 268, 1030, 740" BrowserType="Edge" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKSSURBVDhPpVNrTxNREN3f5weNIYqPYERJiERjRCUYX4gKlFehtFBAEAiICIrykEKLgCD4Fvqm0Ha7baHddktply7UwjF3DKl+1ZtsbmbuzJkzc2Y5/Ofh/jQyyQS2PswjsfwDGVmG4uOR8riheL1QeC/dKfc6FJ5Hyu3Gz3g8C3CQyWDzWS/Wb5fCdbMYglaD2LQJ4aFB+HVN8Knr4Hn0gN68qgr6dladWQBm+BrqEX41BHHkNYFlkkmIb4bBqyoI2F12lxJD/X3YC4eBg4MsQMrrgfNKETzlZdj+/AlRwwTR9zx+COflS/Cpa+HX65D4/g3Y3z9MA7evKJBMRmx0P0VA3wzZ6cCOaxXi8EvsiWECis3N0k3VB/qRlqJZgMjYCPjqSgiNanrcDfiJ9vbXLxSQSSSQjkk0IwYeaG3BZn8f2QSwWnwVgfZWYsBXV2HtVgnZsdkZRA1vsdHTRfTZzegzFTa6O4klAbhKriPQpkew8wklRsbHKJhNPy2KvxN6uuBv0WFrYZ4KMUW8qkokzSvgbBfPg69VwVdfA/e9O/CU34egbaR2YnMzJCFjxtSRpk3ULl9bTUUFjRqcOTcH5pM5sJw9heWjR8DslZxjsF04B1t+HuwF+bDmnYajsIDslRPHYTmTC0dRIVw3roFLWsyILy0iNvMO0ckJSFMGxD8uYev9HCJjo4hOGhAZHyWbbSibA1ON0WfKcEwa5mTLwWjFFxcg6DSQjJMQNA2IThlIf9Z76MVzGuBmbw9S62vk4/i6Gpq2X6tBsKON2LCkYEc7/M1NxOpwyKHBAfA1VdS7NG2kGG4vFKKNY6ss26yQHXakIyJ2gwHIVgtku418rKIi+CiObSprIWm1/P03/sv5BdYGZObxmhrrAAAAAElFTkSuQmCC" InformativeScreenshot="6c4c872a20168e956a9c27f5c7a95007.jpg" Selector="&lt;html app='msedge.exe' htmlwindowname='genernetPortal580143' title='Inicio' /&gt;" Title="Inicio" Url="https://www.generali.es/gpf3k/arq_genernetPortalFormWeb/mediadorPortal.po?type=generaliSpoolPortal" Version="V1" />
+                </uix:NApplicationCard.TargetApp>
+              </uix:NApplicationCard>
+            </Sequence>
           </Sequence>
         </ActivityAction>
-      </ui:BrowserScope.Body>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-    </ui:BrowserScope>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-1928, 260, 1936, 1048" BrowserType="Edge" IconBase64="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" sap2010:WorkflowViewState.IdRef="TargetApp_1" InformativeScreenshot="e0d69dc1ee00978db5642488c8e984d2.jpg" Selector="&lt;html app='msedge.exe' url='https://www.generali.es/arq_genernetPortalFormWeb/CorredorInicio.po' /&gt;" Title="generali-spain - Iniciar sesión" Url="https://www.generali.es/arq_genernetPortalFormWeb/CorredorInicio.po" Version="V1" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
   </Sequence>
 </Activity>
